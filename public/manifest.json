@@ -1,0 +1,16 @@
+{
+  "name": "Domain Money",
+  "short_name": "Domain Money",
+  "description": "Domain Money, your trusted financial advisor. Specializing in financial planning, investment strategy, and wealth management.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#112422",
+  "icons": [
+    {
+      "src": "/image/sologan.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
