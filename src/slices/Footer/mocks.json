@@ -1,0 +1,104 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"logo": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+					"width": 3958,
+					"height": 3958
+				},
+				"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+				"width": 3958,
+				"height": 3958,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "flower",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"instagram_link": {
+				"key": "6dbc3e33-0637-41dc-a588-2392b8f5ab55",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "depend"
+				}
+			},
+			"linkedin_link": {
+				"key": "a56dc404-eca7-4532-b05f-82eb48a5fcab",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "labor"
+				}
+			},
+			"twitter_link": {
+				"key": "5d446d92-dbbd-438c-a7f4-1b1dbc5492d7",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "across"
+				}
+			},
+			"brand_name": {
+				"__TYPE__": "FieldContent",
+				"value": "safe",
+				"type": "Text"
+			},
+			"about": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"team",
+								{
+									"key": "4b2e106f-3f3b-48ab-9413-af1897ad6545",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "planning"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"plans": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": []
+					}
+				]
+			},
+			"services": {
+				"key": "26bff36d-5154-402a-850a-7e8587394e7e",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "brass"
+				}
+			}
+		},
+		"items": []
+	}
+]

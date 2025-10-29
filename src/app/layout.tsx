@@ -1,9 +1,9 @@
 import React from 'react'
-import { Inter, Crimson_Text, Lora } from 'next/font/google'
+import { Inter, Crimson_Text } from 'next/font/google'
 import { constructMetadata } from '@/utils'
-import MainProvider from '@/providers/main-provider'
 import { cn } from '@/utils/cn'
-
+import { PrismicPreview } from '@prismicio/next'
+import { repositoryName } from '@/prismicio'
 import './globals.scss'
 
 const fontText = Inter({
@@ -12,8 +12,6 @@ const fontText = Inter({
   variable: '--font-text',
 })
 
-// Using Crimson Text as a close alternative to Ivy Presto Display
-// Crimson Text has similar characteristics: elegant serif, good for headings
 const fontHeading = Crimson_Text({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
@@ -22,9 +20,7 @@ const fontHeading = Crimson_Text({
 
 export const metadata = constructMetadata()
 
-export default async function RootLayout({
-  children,
-}: React.PropsWithChildren) {
+export default async function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en" className="light">
       <body
@@ -36,6 +32,7 @@ export default async function RootLayout({
       >
         {/* <MainProvider> */}
         <main className="flex flex-1 flex-col">{children}</main>
+        <PrismicPreview repositoryName={repositoryName} />
         {/* </MainProvider> */}
       </body>
     </html>

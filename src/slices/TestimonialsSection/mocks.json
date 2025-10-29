@@ -1,0 +1,105 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "connected",
+				"type": "Text"
+			},
+			"star_number": {
+				"__TYPE__": "FieldContent",
+				"value": "31",
+				"type": "Number"
+			},
+			"see_more_button": {
+				"key": "eb622d21-ce3f-494d-950e-6994c44141df",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "settlers"
+				}
+			},
+			"citation_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Magna ad elit consectetur amet aliquip elit ex in magna ut proident et aute. Exercitation deserunt non dolore aliqua tempor officia cupidatat officia. Amet enim commodo irure commodo velit aliqua sint consectetur sunt."
+						}
+					}
+				]
+			},
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"star_number",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "12",
+									"type": "Number"
+								}
+							],
+							[
+								"review_content",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Voluptate ex magna tempor."
+											}
+										}
+									]
+								}
+							],
+							[
+								"avatar",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+										"width": 4000,
+										"height": 6000
+									},
+									"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+									"width": 4000,
+									"height": 6000,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "thousand",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"username",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "hole",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

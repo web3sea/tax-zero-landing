@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Do quis laborum est ut culpa aliqua elit nulla anim pariatur nulla aliqua reprehenderit aute voluptate. Dolor aliqua velit occaecat ipsum pariatur veniam velit pariatur sunt aute ad duis qui aliqua consectetur. Exercitation do sunt ipsum do dolore ullamco sunt."
+						}
+					}
+				]
+			},
+			"question_and_answers": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "energy",
+									"type": "Text"
+								}
+							],
+							[
+								"answers",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "chicken",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

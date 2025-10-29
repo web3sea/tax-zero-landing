@@ -12,20 +12,20 @@ import FaqSection from '@/components/landing/faq-section'
 import Footer from '@/components/layout/footer'
 
 export default function Home() {
-    return (
-        <div className="min-h-screen">
-            <Header />
-            <HeroSection />
-            <MoneyMasteredSection />
-            <ServicesSection />
-            <AdvisorSection />
-            <MembershipSection />
-            <FeaturedSection />
-            <TestimonialsSection />
-            <WhyDomainSection />
-            <ProcessSection />
-            <FaqSection />
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <HeroSection />
+      <MoneyMasteredSection />
+      <ServicesSection />
+      <AdvisorSection />
+      <MembershipSection />
+      <FeaturedSection />
+      <TestimonialsSection />
+      <WhyDomainSection />
+      <ProcessSection />
+      <FaqSection />
+      <Footer />
+    </div>
+  )
 }

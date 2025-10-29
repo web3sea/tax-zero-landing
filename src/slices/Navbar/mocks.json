@@ -1,0 +1,140 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"logo": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
+					"width": 4000,
+					"height": 6000
+				},
+				"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
+				"width": 4000,
+				"height": 6000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "aware",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"logo_name": {
+				"__TYPE__": "FieldContent",
+				"value": "pupil",
+				"type": "Text"
+			},
+			"about": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "8d5fe45f-88ae-4a11-a265-dad0e98c2701",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://google.com",
+							"text": "rope"
+						}
+					}
+				]
+			},
+			"membership": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"__TYPE__": "LinkContent",
+						"key": "83c3203e-42e1-4d06-9f66-0b957a1c1bc6",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://google.com",
+							"text": "late"
+						}
+					}
+				]
+			},
+			"services": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "8d6aad74-53fa-4f14-8691-7e8059a550bc",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://twitter.com",
+							"text": "replied"
+						}
+					}
+				]
+			},
+			"learn": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "bccc0bb2-825b-485e-bcd7-a5b660e6ca1e",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "https://slicemachine.dev",
+							"text": "free"
+						}
+					}
+				]
+			},
+			"resources": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "68b8f7f3-e93a-4636-9cb0-53f8e80b6430",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://twitter.com",
+							"text": "special"
+						}
+					}
+				]
+			},
+			"pricing": {
+				"key": "fb2fcb78-49d0-4d16-8ddd-5f75566c6b1d",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "power"
+				}
+			},
+			"login": {
+				"key": "b1ed71f0-4146-4877-8987-3ce1c63a4734",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "herd",
+					"variant": "Secondary"
+				}
+			},
+			"free_strategy_session": {
+				"key": "a0a97853-2646-41d3-ba47-17157653b541",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "piece"
+				}
+			}
+		},
+		"items": []
+	}
+]

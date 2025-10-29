@@ -1,0 +1,45 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laborum esse dolore sit excepteur ad consequat ea eiusmod commodo labore. Ad in irure et exercitation et velit anim cupidatat. Do incididunt proident excepteur occaecat mollit nostrud aliqua."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim excepteur laborum elit ipsum excepteur occaecat Lorem in incididunt commodo eiusmod. Sunt est aliqua commodo culpa consequat do."
+						}
+					}
+				]
+			},
+			"button": {
+				"key": "cf037d9e-00e6-48e3-a4c6-8a642221dfa2",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "wood"
+				}
+			},
+			"video_url": {
+				"__TYPE__": "FieldContent",
+				"value": "mill",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

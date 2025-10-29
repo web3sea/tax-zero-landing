@@ -1,0 +1,93 @@
+{
+  "id": "testimonials_section",
+  "type": "SharedSlice",
+  "name": "TestimonialsSection",
+  "description": "TestimonialsSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "star_number": {
+          "type": "Number",
+          "config": {
+            "label": "star_number",
+            "placeholder": ""
+          }
+        },
+        "see_more_button": {
+          "type": "Link",
+          "config": {
+            "label": "See more button",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "citation_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "citation_text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "cards": {
+          "type": "Group",
+          "config": {
+            "label": "cards",
+            "repeat": true,
+            "fields": {
+              "star_number": {
+                "type": "Number",
+                "config": {
+                  "label": "star_number",
+                  "placeholder": ""
+                }
+              },
+              "review_content": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "review_content",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "avatar": {
+                "type": "Image",
+                "config": {
+                  "label": "avatar",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "username": {
+                "type": "Text",
+                "config": {
+                  "label": "Username",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

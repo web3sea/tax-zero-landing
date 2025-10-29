@@ -1,0 +1,126 @@
+{
+  "id": "navbar",
+  "type": "SharedSlice",
+  "name": "Navbar",
+  "description": "Navbar",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "logo": {
+          "type": "Image",
+          "config": {
+            "label": "Logo Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "logo_name": {
+          "type": "Text",
+          "config": {
+            "label": "Logo name",
+            "placeholder": ""
+          }
+        },
+        "about": {
+          "type": "Link",
+          "config": {
+            "label": "About",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true
+          }
+        },
+        "membership": {
+          "type": "Link",
+          "config": {
+            "label": "Membership",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true
+          }
+        },
+        "pricing": {
+          "type": "Link",
+          "config": {
+            "label": "Pricing",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "services": {
+          "type": "Link",
+          "config": {
+            "label": "Services",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true
+          }
+        },
+        "learn": {
+          "type": "Link",
+          "config": {
+            "label": "Learn",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true
+          }
+        },
+        "resources": {
+          "type": "Link",
+          "config": {
+            "label": "Resources",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true
+          }
+        },
+        "login": {
+          "type": "Link",
+          "config": {
+            "label": "Login",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        },
+        "free_strategy_session": {
+          "type": "Link",
+          "config": {
+            "label": "Free Strategy Session",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

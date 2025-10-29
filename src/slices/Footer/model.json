@@ -1,0 +1,106 @@
+{
+  "id": "footer",
+  "type": "SharedSlice",
+  "name": "Footer",
+  "description": "Footer",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "logo": {
+          "type": "Image",
+          "config": {
+            "label": "Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "brand_name": {
+          "type": "Text",
+          "config": {
+            "label": "Brand Name",
+            "placeholder": ""
+          }
+        },
+        "instagram_link": {
+          "type": "Link",
+          "config": {
+            "label": "Instagram Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "linkedin_link": {
+          "type": "Link",
+          "config": {
+            "label": "Linkedin Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "twitter_link": {
+          "type": "Link",
+          "config": {
+            "label": "Twitter Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "about": {
+          "type": "Group",
+          "config": {
+            "label": "About",
+            "repeat": true,
+            "fields": {
+              "team": {
+                "type": "Link",
+                "config": {
+                  "label": "Link Item",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "plans": {
+          "type": "Group",
+          "config": {
+            "label": "Plans",
+            "repeat": true,
+            "fields": {}
+          }
+        },
+        "services": {
+          "type": "Link",
+          "config": {
+            "label": "Services",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim nulla do minim ipsum cupidatat amet aliquip. Cillum officia veniam adipisicing reprehenderit fugiat incididunt deserunt amet elit ea magna."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Est velit reprehenderit laborum nulla eu labore esse aliqua occaecat enim. Nisi do consequat laborum esse. Laborum sit anim officia est nostrud consectetur ea nisi mollit consequat ut laborum culpa veniam."
+						}
+					}
+				]
+			},
+			"button": {
+				"key": "2d20df8c-076e-437d-921c-8a029fdd680d",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "anywhere"
+				}
+			},
+			"for_illustrative_purposes_only": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+					"width": 12288,
+					"height": 16384
+				},
+				"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+				"width": 12288,
+				"height": 16384,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "crowd",
+				"thumbnails": {}
+			}
+		},
+		"items": []
+	}
+]

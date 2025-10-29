@@ -1,0 +1,58 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt Lorem tempor fugiat nisi esse laborum sunt voluptate fugiat occaecat veniam cillum. Elit nulla sunt nisi consectetur aliquip labore consectetur labore cillum officia."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Velit irure mollit culpa cupidatat aute culpa laboris cillum do sit. Dolor consectetur sit commodo ex reprehenderit ut anim nostrud eu excepteur ut enim."
+						}
+					}
+				]
+			},
+			"badges": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "eaten",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"button": {
+				"__TYPE__": "LinkContent",
+				"key": "54763c4c-5234-451f-b71c-b80afa641d2c",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "distance"
+				}
+			}
+		},
+		"items": []
+	}
+]
