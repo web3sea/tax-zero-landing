@@ -58,6 +58,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>['id']]
 
 type LandingDocumentDataSlicesSlice =
+  | FooterSlice
   | ServiceSectionSlice
   | ProcessSectionSlice
   | TestimonialsSectionSlice
@@ -66,7 +67,6 @@ type LandingDocumentDataSlicesSlice =
   | MasteredSectionSlice
   | AdvisorSectionSlice
   | MembershipSectionSlice
-  | FooterSlice
   | FeaturedSectionSlice
   | NavbarSlice
   | HeroSlice
@@ -364,24 +364,59 @@ export type FeaturedSectionSlice = prismic.SharedSlice<
  */
 export interface FooterSliceDefaultPrimaryAboutItem {
   /**
-   * Team field in *Footer → Default → Primary → About*
+   * Link Item field in *Footer → Default → Primary → About*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.about[].team
+   * - **API ID Path**: footer.default.primary.about[].link_item
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  team: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  link_item: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+}
 
+/**
+ * Item in *Footer → Default → Primary → Services*
+ */
+export interface FooterSliceDefaultPrimaryServicesItem {
   /**
-   * Press field in *Footer → Default → Primary → About*
+   * Link Item field in *Footer → Default → Primary → Services*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.about[].press
+   * - **API ID Path**: footer.default.primary.services[].link_item
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  press: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  link_item: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+}
+
+/**
+ * Item in *Footer → Default → Primary → Meet Our Advisors*
+ */
+export interface FooterSliceDefaultPrimaryMeetOurAdvisorsItem {
+  /**
+   * Link Item field in *Footer → Default → Primary → Meet Our Advisors*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.meet_our_advisors[].link_item
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link_item: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+}
+
+/**
+ * Item in *Footer → Default → Primary → Resources*
+ */
+export interface FooterSliceDefaultPrimaryResourcesItem {
+  /**
+   * Link Item field in *Footer → Default → Primary → Resources*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.resources[].link_item
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link_item: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
 }
 
 /**
@@ -389,44 +424,14 @@ export interface FooterSliceDefaultPrimaryAboutItem {
  */
 export interface FooterSliceDefaultPrimaryPlansItem {
   /**
-   * Essential field in *Footer → Default → Primary → Plans*
+   * Link Item field in *Footer → Default → Primary → Plans*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.plans[].essential
+   * - **API ID Path**: footer.default.primary.plans[].link_item
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  essential: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-
-  /**
-   * Strategic field in *Footer → Default → Primary → Plans*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.plans[].strategic
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  strategic: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-
-  /**
-   * Comprehensive field in *Footer → Default → Primary → Plans*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.plans[].comprehensive
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  comprehensive: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-
-  /**
-   * Membership field in *Footer → Default → Primary → Plans*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.plans[].membership
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  membership: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  link_item: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
 }
 
 /**
@@ -434,17 +439,17 @@ export interface FooterSliceDefaultPrimaryPlansItem {
  */
 export interface FooterSliceDefaultPrimary {
   /**
-   * Logo field in *Footer → Default → Primary*
+   * Logo Brand field in *Footer → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.logo
+   * - **API ID Path**: footer.default.primary.logo_brand
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  logo: prismic.ImageField<never>
+  logo_brand: prismic.ImageField<never>
 
   /**
-   * Brand Name field in *Footer → Default → Primary*
+   * Brand name field in *Footer → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -494,6 +499,36 @@ export interface FooterSliceDefaultPrimary {
   about: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryAboutItem>>
 
   /**
+   * Services field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.services[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  services: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryServicesItem>>
+
+  /**
+   * Meet Our Advisors field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.meet_our_advisors[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  meet_our_advisors: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryMeetOurAdvisorsItem>>
+
+  /**
+   * Resources field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.resources[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  resources: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryResourcesItem>>
+
+  /**
    * Plans field in *Footer → Default → Primary*
    *
    * - **Field Type**: Group
@@ -502,6 +537,96 @@ export interface FooterSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   plans: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryPlansItem>>
+
+  /**
+   * Copyright1 field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.copyright1
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  copyright1: prismic.KeyTextField
+
+  /**
+   * Copyright2 field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.copyright2
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  copyright2: prismic.KeyTextField
+
+  /**
+   * All Rights Reserved field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.all_rights_reserved
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  all_rights_reserved: prismic.KeyTextField
+
+  /**
+   * Log In field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.log_in
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  log_in: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+
+  /**
+   * Privacy Policy field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.privacy_policy
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  privacy_policy: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+
+  /**
+   * Terms of Use field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.terms_of_use
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  terms_of_use: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+
+  /**
+   * Form ADV field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.form_adv
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  form_adv: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+
+  /**
+   * Legal field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.legal
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  legal: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+
+  /**
+   * Form CRS field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.form_crs
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  form_crs: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
 }
 
 /**
@@ -1357,6 +1482,9 @@ declare module '@prismicio/client' {
       FeaturedSectionSliceDefault,
       FooterSlice,
       FooterSliceDefaultPrimaryAboutItem,
+      FooterSliceDefaultPrimaryServicesItem,
+      FooterSliceDefaultPrimaryMeetOurAdvisorsItem,
+      FooterSliceDefaultPrimaryResourcesItem,
       FooterSliceDefaultPrimaryPlansItem,
       FooterSliceDefaultPrimary,
       FooterSliceVariation,

@@ -12,10 +12,10 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "logo": {
+        "logo_brand": {
           "type": "Image",
           "config": {
-            "label": "Logo",
+            "label": "Logo Brand",
             "constraint": {},
             "thumbnails": []
           }
@@ -23,7 +23,7 @@
         "brand_name": {
           "type": "Text",
           "config": {
-            "label": "Brand Name",
+            "label": "Brand name",
             "placeholder": ""
           }
         },
@@ -66,7 +66,67 @@
             "label": "About",
             "repeat": true,
             "fields": {
-              "team": {
+              "link_item": {
+                "type": "Link",
+                "config": {
+                  "label": "Link Item",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "services": {
+          "type": "Group",
+          "config": {
+            "label": "Services",
+            "repeat": true,
+            "fields": {
+              "link_item": {
+                "type": "Link",
+                "config": {
+                  "label": "Link Item",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "meet_our_advisors": {
+          "type": "Group",
+          "config": {
+            "label": "Meet Our Advisors",
+            "repeat": true,
+            "fields": {
+              "link_item": {
+                "type": "Link",
+                "config": {
+                  "label": "Link Item",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "resources": {
+          "type": "Group",
+          "config": {
+            "label": "Resources",
+            "repeat": true,
+            "fields": {
+              "link_item": {
                 "type": "Link",
                 "config": {
                   "label": "Link Item",
@@ -85,13 +145,101 @@
           "config": {
             "label": "Plans",
             "repeat": true,
-            "fields": {}
+            "fields": {
+              "link_item": {
+                "type": "Link",
+                "config": {
+                  "label": "Link Item",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
           }
         },
-        "services": {
+        "copyright1": {
+          "type": "Text",
+          "config": {
+            "label": "Copyright1",
+            "placeholder": ""
+          }
+        },
+        "copyright2": {
+          "type": "Text",
+          "config": {
+            "label": "Copyright2",
+            "placeholder": ""
+          }
+        },
+        "all_rights_reserved": {
+          "type": "Text",
+          "config": {
+            "label": "All Rights Reserved",
+            "placeholder": ""
+          }
+        },
+        "log_in": {
           "type": "Link",
           "config": {
-            "label": "Services",
+            "label": "Log In",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "privacy_policy": {
+          "type": "Link",
+          "config": {
+            "label": "Privacy Policy",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "terms_of_use": {
+          "type": "Link",
+          "config": {
+            "label": "Terms of Use",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "form_adv": {
+          "type": "Link",
+          "config": {
+            "label": "Form ADV",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "legal": {
+          "type": "Link",
+          "config": {
+            "label": "Legal",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "form_crs": {
+          "type": "Link",
+          "config": {
+            "label": "Form CRS",
             "placeholder": "",
             "select": null,
             "allowTargetBlank": true,

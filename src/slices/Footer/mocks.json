@@ -3,16 +3,16 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"logo": {
+			"logo_brand": {
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
-					"width": 3958,
-					"height": 3958
+					"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+					"width": 4016,
+					"height": 6016
 				},
-				"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
-				"width": 3958,
-				"height": 3958,
+				"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+				"width": 4016,
+				"height": 6016,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -21,42 +21,42 @@
 					},
 					"background": "transparent"
 				},
-				"alt": "flower",
+				"alt": "different",
 				"credits": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
+			"brand_name": {
+				"__TYPE__": "FieldContent",
+				"value": "moving",
+				"type": "Text"
+			},
 			"instagram_link": {
-				"key": "6dbc3e33-0637-41dc-a588-2392b8f5ab55",
+				"key": "6227743a-dddd-4270-a40d-b1a482924a15",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "https://slicemachine.dev",
-					"text": "depend"
+					"text": "creature"
 				}
 			},
 			"linkedin_link": {
-				"key": "a56dc404-eca7-4532-b05f-82eb48a5fcab",
+				"key": "e9ada8d8-02ad-4cce-ab5c-3ed749ab8d3d",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev",
-					"text": "labor"
+					"url": "https://prismic.io",
+					"text": "southern"
 				}
 			},
 			"twitter_link": {
-				"key": "5d446d92-dbbd-438c-a7f4-1b1dbc5492d7",
+				"key": "26d4e903-00ab-415d-9729-80c551459e72",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "http://google.com",
-					"text": "across"
+					"url": "http://twitter.com",
+					"text": "black"
 				}
-			},
-			"brand_name": {
-				"__TYPE__": "FieldContent",
-				"value": "safe",
-				"type": "Text"
 			},
 			"about": {
 				"__TYPE__": "GroupContentType",
@@ -65,14 +65,80 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"team",
+								"link_item",
 								{
-									"key": "4b2e106f-3f3b-48ab-9413-af1897ad6545",
+									"key": "e7a92558-edda-4061-91ce-3e975d942776",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "successful"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"services": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link_item",
+								{
+									"key": "0c786795-6206-4a38-9105-5204ee22aa1c",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "refer"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"meet_our_advisors": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link_item",
+								{
+									"key": "bd3642d0-2359-4d14-a875-a89f767a3da2",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "doubt"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"resources": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link_item",
+								{
+									"key": "8ac4fbf7-94cd-4c92-8dd8-a419d3aad888",
 									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
 										"url": "http://twitter.com",
-										"text": "planning"
+										"text": "topic"
 									}
 								}
 							]
@@ -85,17 +151,90 @@
 				"value": [
 					{
 						"__TYPE__": "GroupItemContent",
-						"value": []
+						"value": [
+							[
+								"link_item",
+								{
+									"key": "c69ee1de-b805-488c-ba6c-148e315ee99b",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "add"
+									}
+								}
+							]
+						]
 					}
 				]
 			},
-			"services": {
-				"key": "26bff36d-5154-402a-850a-7e8587394e7e",
+			"copyright1": {
+				"__TYPE__": "FieldContent",
+				"value": "stone",
+				"type": "Text"
+			},
+			"copyright2": {
+				"__TYPE__": "FieldContent",
+				"value": "environment",
+				"type": "Text"
+			},
+			"all_rights_reserved": {
+				"__TYPE__": "FieldContent",
+				"value": "of",
+				"type": "Text"
+			},
+			"log_in": {
+				"key": "de788f1b-4091-427f-b14f-ceff0c323f0c",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "crack"
+				}
+			},
+			"privacy_policy": {
+				"key": "ee2dc566-8cb4-4d0a-bcb7-8108c9e74598",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "watch"
+				}
+			},
+			"terms_of_use": {
+				"key": "c75dfde9-69a9-4f78-96cc-7ff025beddc6",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "http://twitter.com",
-					"text": "brass"
+					"text": "fellow"
+				}
+			},
+			"form_adv": {
+				"key": "dcb6316d-bb30-4725-885d-07f78b2a624f",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "official"
+				}
+			},
+			"legal": {
+				"key": "a98b61fa-bc03-4e85-90ac-5fc84b7d6f0f",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "environment"
+				}
+			},
+			"form_crs": {
+				"__TYPE__": "LinkContent",
+				"key": "b9bebbfd-fcc5-48b8-b6c2-d57715edffb8",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "ride"
 				}
 			}
 		},

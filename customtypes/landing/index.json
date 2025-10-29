@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "footer": {
+              "type": "SharedSlice"
+            },
             "service_section": {
               "type": "SharedSlice"
             },
@@ -33,9 +36,6 @@
               "type": "SharedSlice"
             },
             "membership_section": {
-              "type": "SharedSlice"
-            },
-            "footer": {
               "type": "SharedSlice"
             },
             "featured_section": {
