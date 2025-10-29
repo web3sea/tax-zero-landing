@@ -1,27 +1,31 @@
-import { type Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { asImageSrc } from '@prismicio/client'
-import { SliceZone } from '@prismicio/react'
+import Header from '@/components/layout/header'
+import HeroSection from '@/components/landing/hero-section'
+import MoneyMasteredSection from '@/components/landing/money-mastered-section'
+import ServicesSection from '@/components/landing/services-section'
+import AdvisorSection from '@/components/landing/advisor/advisor-section'
+import MembershipSection from '@/components/landing/membership-section'
+import FeaturedSection from '@/components/landing/featured-section'
+import TestimonialsSection from '@/components/landing/testimonials/testimonials-section'
+import WhyDomainSection from '@/components/landing/why-domain-section'
+import ProcessSection from '@/components/landing/process-section'
+import FaqSection from '@/components/landing/faq-section'
+import Footer from '@/components/layout/footer'
 
-import { createClient } from '@/prismicio'
-import { components } from '@/slices'
-
-export default async function LandingPage() {
-  const client = createClient()
-  const page = await client.getSingle('landing').catch(() => notFound())
-
-  return <SliceZone slices={page.data.slices} components={components} />
-}
-
-export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient()
-  const page = await client.getSingle('landing').catch(() => notFound())
-
-  return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
-    openGraph: {
-      images: [{ url: asImageSrc(page.data.meta_image) ?? '' }],
-    },
-  }
+export default function Home() {
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <HeroSection />
+      <MoneyMasteredSection />
+      <ServicesSection />
+      <AdvisorSection />
+      <MembershipSection />
+      <FeaturedSection />
+      <TestimonialsSection />
+      <WhyDomainSection />
+      <ProcessSection />
+      <FaqSection />
+      <Footer />
+    </div>
+  )
 }
