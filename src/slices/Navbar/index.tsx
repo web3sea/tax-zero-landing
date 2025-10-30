@@ -139,12 +139,8 @@ const Navbar: FC<NavbarProps> = ({ slice }) => {
                   className="h-7 w-auto"
                 />
               ) : (
-                <div className="h-7 w-10 rounded bg-design-accent"></div>
+                <div className="h-7 w-10 rounded-full bg-design-accent"></div>
               )}
-              <h1 className="hidden text-2xl font-bold text-design-primary lg:block">
-                <span className="font-normal">Domain</span>
-                <span className="ml-1 font-bold">Money</span>
-              </h1>
             </div>
           </div>
 
