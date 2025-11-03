@@ -16,13 +16,15 @@ export async function POST(req: Request) {
       listIds: listId ? [Number(listId)] : undefined,
     })
 
+    // Some Brevo responses may be 204 No Content. Our client expects JSON.
+    // Normalize to a 200 JSON response while preserving upstream status in payload.
     return NextResponse.json(
       {
         success: result.ok,
         status: result.status,
-        brevo: result.data,
+        brevo: result.data ?? null,
       },
-      { status: result.status },
+      { status: result.ok ? 200 : result.status },
     )
   } catch (error) {
     const err = error as { message?: string }

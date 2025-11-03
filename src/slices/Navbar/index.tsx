@@ -68,63 +68,63 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
           }))
         : [],
     },
-    {
-      label: 'Membership',
-      link: Array.isArray(slice.primary.membership)
-        ? slice.primary.membership[0]
-        : slice.primary.membership || { url: '#membership' },
-      hasDropdown: Array.isArray(slice.primary.membership) && slice.primary.membership.length > 0,
-      children: Array.isArray(slice.primary.membership)
-        ? slice.primary.membership.map((item) => ({
-            label: item.text || 'Link',
-            link: item,
-          }))
-        : [],
-    },
-    {
-      label: 'Pricing',
-      link: slice.primary.pricing || { url: '#pricing' },
-      hasDropdown: false,
-    },
-    {
-      label: 'Services',
-      link: Array.isArray(slice.primary.services)
-        ? slice.primary.services[0]
-        : slice.primary.services || { url: '#services' },
-      hasDropdown: Array.isArray(slice.primary.services) && slice.primary.services.length > 0,
-      children: Array.isArray(slice.primary.services)
-        ? slice.primary.services.map((item) => ({
-            label: item.text || 'Link',
-            link: item,
-          }))
-        : [],
-    },
-    {
-      label: 'Learn',
-      link: Array.isArray(slice.primary.learn)
-        ? slice.primary.learn[0]
-        : slice.primary.learn || { url: '#learn' },
-      hasDropdown: Array.isArray(slice.primary.learn) && slice.primary.learn.length > 0,
-      children: Array.isArray(slice.primary.learn)
-        ? slice.primary.learn.map((item) => ({
-            label: item.text || 'Link',
-            link: item,
-          }))
-        : [],
-    },
-    {
-      label: 'Resources',
-      link: Array.isArray(slice.primary.resources)
-        ? slice.primary.resources[0]
-        : slice.primary.resources || { url: '#resources' },
-      hasDropdown: Array.isArray(slice.primary.resources) && slice.primary.resources.length > 0,
-      children: Array.isArray(slice.primary.resources)
-        ? slice.primary.resources.map((item) => ({
-            label: item.text || 'Link',
-            link: item,
-          }))
-        : [],
-    },
+    // {
+    //   label: 'Membership',
+    //   link: Array.isArray(slice.primary.membership)
+    //     ? slice.primary.membership[0]
+    //     : slice.primary.membership || { url: '#membership' },
+    //   hasDropdown: Array.isArray(slice.primary.membership) && slice.primary.membership.length > 0,
+    //   children: Array.isArray(slice.primary.membership)
+    //     ? slice.primary.membership.map((item) => ({
+    //         label: item.text || 'Link',
+    //         link: item,
+    //       }))
+    //     : [],
+    // },
+    // {
+    //   label: 'Pricing',
+    //   link: slice.primary.pricing || { url: '#pricing' },
+    //   hasDropdown: false,
+    // },
+    // {
+    //   label: 'Services',
+    //   link: Array.isArray(slice.primary.services)
+    //     ? slice.primary.services[0]
+    //     : slice.primary.services || { url: '#services' },
+    //   hasDropdown: Array.isArray(slice.primary.services) && slice.primary.services.length > 0,
+    //   children: Array.isArray(slice.primary.services)
+    //     ? slice.primary.services.map((item) => ({
+    //         label: item.text || 'Link',
+    //         link: item,
+    //       }))
+    //     : [],
+    // },
+    // {
+    //   label: 'Learn',
+    //   link: Array.isArray(slice.primary.learn)
+    //     ? slice.primary.learn[0]
+    //     : slice.primary.learn || { url: '#learn' },
+    //   hasDropdown: Array.isArray(slice.primary.learn) && slice.primary.learn.length > 0,
+    //   children: Array.isArray(slice.primary.learn)
+    //     ? slice.primary.learn.map((item) => ({
+    //         label: item.text || 'Link',
+    //         link: item,
+    //       }))
+    //     : [],
+    // },
+    // {
+    //   label: 'Resources',
+    //   link: Array.isArray(slice.primary.resources)
+    //     ? slice.primary.resources[0]
+    //     : slice.primary.resources || { url: '#resources' },
+    //   hasDropdown: Array.isArray(slice.primary.resources) && slice.primary.resources.length > 0,
+    //   children: Array.isArray(slice.primary.resources)
+    //     ? slice.primary.resources.map((item) => ({
+    //         label: item.text || 'Link',
+    //         link: item,
+    //       }))
+    //     : [],
+    // },
   ]
 
   return (
@@ -189,7 +189,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                               duration: 0.2,
                               ease: 'easeOut',
                             }}
-                            className="absolute left-0 top-full z-50 mt-2 w-48 rounded-lg border border-gray-200 bg-white shadow-lg"
+                            className="absolute right-0 top-full z-50 mt-2 w-48 rounded-lg border border-gray-200 bg-white shadow-lg"
                           >
                             {item.children?.map((child, index) => (
                               <PrismicNextLink
@@ -218,7 +218,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
 
             {/* CTA Buttons */}
             <div className="flex items-center space-x-4">
-              {slice.primary.login && (
+              {/* {slice.primary.login && (
                 <Button
                   asChild
                   variant="outline"
@@ -227,7 +227,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                 >
                   <PrismicNextLink field={slice.primary.login}>Log in</PrismicNextLink>
                 </Button>
-              )}
+              )} */}
               {!isWaitlistMode && slice.primary.free_strategy_session ? (
                 <Button
                   asChild
