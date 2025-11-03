@@ -1,7 +1,7 @@
 {
-  "name": "Domain Money",
-  "short_name": "Domain Money",
-  "description": "Domain Money, your trusted financial advisor. Specializing in financial planning, investment strategy, and wealth management.",
+  "name": "Tax Zero",
+  "short_name": "Tax Zero",
+  "description": "Tax Zero, your trusted tax advisor. Specializing in tax planning, tax optimization, and tax compliance.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

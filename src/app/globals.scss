@@ -14,7 +14,7 @@
   font-display: swap;
 }
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
@@ -31,8 +31,12 @@ All colors MUST be HSL.
     /* #FFF */
     --popover: 0 0% 100%;
     /* #FFF */
-    --primary: 25 95% 53%;
-    /* #FF7F41 - Domain Money Orange Accent */
+    /* Toast variables */
+    --toast: 0 0% 100%;
+    --toast-foreground: 0 0% 0%;
+    --toast-border: 0 0% 90.6%;
+    --primary: 234 82% 59%;
+    /* #3F50EC - Primary */
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 96.5%;
     /* #F6F6F6 */
@@ -40,18 +44,18 @@ All colors MUST be HSL.
     --muted: 0 0% 96.5%;
     /* #F6F6F6 */
     --muted-foreground: 0 0% 32.3%;
-    --accent: 25 95% 95%;
-    /* Light version of Domain Money orange */
-    --accent-foreground: 25 95% 25%;
-    --destructive: 358.4334 74.9120% 59.7455%;
+    --accent: 234 82% 95%;
+    /* Light version of primary */
+    --accent-foreground: 234 82% 25%;
+    --destructive: 358.4334 74.912% 59.7455%;
     --destructive-foreground: 0 0% 100%;
     --border: 0 0% 90.6%;
     /* #E7E7E7 */
     --input: 0 0% 90.6%;
     /* #E7E7E7 */
-    --ring: 25 95% 53%;
-    /* Domain Money orange for focus rings */
-    --chart-1: 25 95% 53%;
+    --ring: 234 82% 59%;
+    /* Primary for focus rings */
+    --chart-1: 234 82% 59%;
     --chart-2: 180 100% 20%;
     --chart-3: 0 0% 64.5%;
     --chart-4: 0 0% 89.6%;
@@ -59,17 +63,18 @@ All colors MUST be HSL.
     --sidebar: 0 0% 100%;
     /* #FFF */
     --sidebar-foreground: 0 0% 0%;
-    --sidebar-primary: 25 95% 53%;
-    /* Domain Money orange */
+    --sidebar-primary: 234 82% 59%;
+    /* Primary */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 25 95% 95%;
-    /* Light version of Domain Money orange */
-    --sidebar-accent-foreground: 25 95% 25%;
+    --sidebar-accent: 234 82% 95%;
+    /* Light version of primary */
+    --sidebar-accent-foreground: 234 82% 25%;
     --sidebar-border: 0 0% 96.5%;
     /* #F6F6F6 */
-    --sidebar-ring: 25 95% 53%;
-    /* Domain Money orange */
-    --font-sans: var(--font-text), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --sidebar-ring: 234 82% 59%;
+    /* Primary */
+    --font-sans:
+      var(--font-text), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-serif: var(--font-heading), 'Crimson Text', 'Playfair Display', Georgia, serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
     --radius: 0.5rem;
@@ -91,12 +96,12 @@ All colors MUST be HSL.
     /* Lighter teal for hover states */
     --domain-beige: 30 20% 95%;
     /* #F8F5F0 - Light Beige */
-    --domain-orange: 25 95% 53%;
-    /* #FF7F41 - Orange Accent */
-    --domain-orange-light: 25 95% 70%;
-    /* Lighter orange for backgrounds */
-    --domain-orange-dark: 25 95% 40%;
-    /* Darker orange for text */
+    --domain-orange: 234 82% 59%;
+    /* #3F50EC - New Primary */
+    --domain-orange-light: 234 82% 70%;
+    /* Lighter primary for backgrounds */
+    --domain-orange-dark: 234 82% 40%;
+    /* Darker primary for text */
     --domain-gray: 0 0% 20%;
     /* Dark gray for text */
     --domain-gray-light: 0 0% 60%;
@@ -109,11 +114,12 @@ All colors MUST be HSL.
     /* #112422 - Dark Green Primary */
     --design-primary-light: 180 100% 15%;
     /* Lighter version of primary */
-    --design-accent: 15 85% 49%;
-    /* #e25f17 - Orange Accent */
-    --design-accent-light: 15 85% 65%;
+    --design-accent: 234 82% 59%;
+    /* #3F50EC - Primary Accent */
+    --design-accent-light: 234 82% 75%;
     /* Lighter version of accent */
-    --design-accent-dark: 15 85% 35%;
+    --design-accent-dark: 234 82% 40%;
+    /* Darker version of primary accent */
     /* Darker version of accent */
     --design-card-bg: 45 25% 97%;
     /* #f8f6f2 - Card Background */
@@ -121,8 +127,18 @@ All colors MUST be HSL.
     /* Slightly darker card background */
 
     /* Domain Money Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(25 95% 40%) 50%, hsl(180 100% 20%) 100%);
-    --gradient-ocean: linear-gradient(135deg, hsl(25 95% 70%) 0%, hsl(25 95% 53%) 50%, hsl(180 100% 30%) 100%);
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(234 82% 59%) 0%,
+      hsl(234 82% 40%) 50%,
+      hsl(180 100% 20%) 100%
+    );
+    --gradient-ocean: linear-gradient(
+      135deg,
+      hsl(234 82% 70%) 0%,
+      hsl(234 82% 59%) 50%,
+      hsl(180 100% 30%) 100%
+    );
     --gradient-teal: linear-gradient(135deg, hsl(180 100% 20%) 0%, hsl(180 100% 30%) 100%);
 
     /* Domain Money Shadows */
@@ -138,39 +154,44 @@ All colors MUST be HSL.
     --card-foreground: 0 0% 100%;
     --popover: 0 0% 6.9%;
     --popover-foreground: 0 0% 100%;
-    --primary: 25 95% 53%;
-    /* #FF7F41 - Domain Money Orange */
+    /* Toast variables (dark) */
+    --toast: 0 0% 6.9%;
+    --toast-foreground: 0 0% 100%;
+    --toast-border: 0 0% 14.1%;
+    --primary: 234 82% 59%;
+    /* #3F50EC - Primary */
     --primary-foreground: 0 0% 0%;
     --secondary: 0 0% 13.1%;
     --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 11.3%;
     --muted-foreground: 0 0% 64.5%;
-    --accent: 25 95% 20%;
-    /* Darker version of Domain Money orange for dark mode */
-    --accent-foreground: 25 95% 90%;
+    --accent: 234 82% 20%;
+    /* Darker version of primary for dark mode */
+    --accent-foreground: 234 82% 90%;
     --destructive: 359.9132 100.2494% 67.8807%;
     --destructive-foreground: 0 0% 0%;
     --border: 0 0% 14.1%;
     --input: 0 0% 19.9%;
-    --ring: 25 95% 53%;
-    /* Domain Money orange for focus rings */
-    --chart-1: 25 95% 53%;
+    --ring: 234 82% 59%;
+    /* Primary for focus rings */
+    --chart-1: 234 82% 59%;
     --chart-2: 180 100% 30%;
     --chart-3: 0 0% 45.6%;
     --chart-4: 0 0% 32.3%;
     --chart-5: 0 0% 89.6%;
     --sidebar: 0 0% 6.9%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 25 95% 53%;
-    /* Domain Money orange */
+    --sidebar-primary: 234 82% 59%;
+    /* Primary */
     --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 25 95% 20%;
-    /* Darker version of Domain Money orange for dark mode */
+    --sidebar-accent: 234 82% 20%;
+    /* Darker version of primary for dark mode */
     --sidebar-accent-foreground: 25 95% 90%;
     --sidebar-border: 0 0% 19.9%;
-    --sidebar-ring: 25 95% 53%;
-    /* Domain Money orange */
-    --font-sans: var(--font-text), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --sidebar-ring: 234 82% 59%;
+    /* Primary */
+    --font-sans:
+      var(--font-text), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-serif: var(--font-heading), 'Crimson Text', 'Playfair Display', Georgia, serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
     --radius: 0.5rem;
@@ -197,7 +218,6 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
-
 }
 
 @layer utilities {
@@ -222,7 +242,7 @@ All colors MUST be HSL.
   /* Custom scrollbar for testimonials */
   .testimonials-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: #f97316 #e5e7eb;
+    scrollbar-color: #3f50ec #e5e7eb;
   }
 
   .testimonials-scrollbar::-webkit-scrollbar {
@@ -235,12 +255,12 @@ All colors MUST be HSL.
   }
 
   .testimonials-scrollbar::-webkit-scrollbar-thumb {
-    background-color: #f97316;
+    background-color: #3f50ec;
     border-radius: 3px;
   }
 
   .testimonials-scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: #ea580c;
+    background-color: #5a6afd;
   }
 
   /* Hide scrollbar arrows */
@@ -257,7 +277,6 @@ All colors MUST be HSL.
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
-
 }
 
 html {

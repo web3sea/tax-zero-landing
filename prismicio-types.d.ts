@@ -76,6 +76,18 @@ type LandingDocumentDataSlicesSlice =
  */
 interface LandingDocumentData {
   /**
+   * is_waitlist_mode field in *Landing*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: landing.is_waitlist_mode
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  is_waitlist_mode: prismic.BooleanField
+
+  /**
    * Slice Zone field in *Landing*
    *
    * - **Field Type**: Slice Zone
@@ -375,66 +387,6 @@ export interface FooterSliceDefaultPrimaryAboutItem {
 }
 
 /**
- * Item in *Footer → Default → Primary → Services*
- */
-export interface FooterSliceDefaultPrimaryServicesItem {
-  /**
-   * Link Item field in *Footer → Default → Primary → Services*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.services[].link_item
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link_item: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-}
-
-/**
- * Item in *Footer → Default → Primary → Meet Our Advisors*
- */
-export interface FooterSliceDefaultPrimaryMeetOurAdvisorsItem {
-  /**
-   * Link Item field in *Footer → Default → Primary → Meet Our Advisors*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.meet_our_advisors[].link_item
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link_item: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-}
-
-/**
- * Item in *Footer → Default → Primary → Resources*
- */
-export interface FooterSliceDefaultPrimaryResourcesItem {
-  /**
-   * Link Item field in *Footer → Default → Primary → Resources*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.resources[].link_item
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link_item: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-}
-
-/**
- * Item in *Footer → Default → Primary → Plans*
- */
-export interface FooterSliceDefaultPrimaryPlansItem {
-  /**
-   * Link Item field in *Footer → Default → Primary → Plans*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.plans[].link_item
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link_item: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-}
-
-/**
  * Primary content in *Footer → Default → Primary*
  */
 export interface FooterSliceDefaultPrimary {
@@ -497,66 +449,6 @@ export interface FooterSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   about: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryAboutItem>>
-
-  /**
-   * Services field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.services[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  services: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryServicesItem>>
-
-  /**
-   * Meet Our Advisors field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.meet_our_advisors[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  meet_our_advisors: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryMeetOurAdvisorsItem>>
-
-  /**
-   * Resources field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.resources[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  resources: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryResourcesItem>>
-
-  /**
-   * Plans field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.plans[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  plans: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryPlansItem>>
-
-  /**
-   * Copyright1 field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.copyright1
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  copyright1: prismic.KeyTextField
-
-  /**
-   * Copyright2 field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.copyright2
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  copyright2: prismic.KeyTextField
 
   /**
    * All Rights Reserved field in *Footer → Default → Primary*
@@ -936,16 +828,6 @@ export interface NavbarSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   logo: prismic.ImageField<never>
-
-  /**
-   * Logo name field in *Navbar → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.default.primary.logo_name
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  logo_name: prismic.KeyTextField
 
   /**
    * About field in *Navbar → Default → Primary*
@@ -1482,10 +1364,6 @@ declare module '@prismicio/client' {
       FeaturedSectionSliceDefault,
       FooterSlice,
       FooterSliceDefaultPrimaryAboutItem,
-      FooterSliceDefaultPrimaryServicesItem,
-      FooterSliceDefaultPrimaryMeetOurAdvisorsItem,
-      FooterSliceDefaultPrimaryResourcesItem,
-      FooterSliceDefaultPrimaryPlansItem,
       FooterSliceDefaultPrimary,
       FooterSliceVariation,
       FooterSliceDefault,

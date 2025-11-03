@@ -4,6 +4,7 @@ import { constructMetadata } from '@/utils'
 import { cn } from '@/utils/cn'
 import { PrismicPreview } from '@prismicio/next'
 import { repositoryName } from '@/prismicio'
+import MainProvider from '@/providers/main-provider'
 import './globals.scss'
 
 const fontText = Inter({
@@ -30,10 +31,10 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
           'flex min-h-screen flex-col antialiased',
         )}
       >
-        {/* <MainProvider> */}
-        <main className="flex flex-1 flex-col">{children}</main>
-        <PrismicPreview repositoryName={repositoryName} />
-        {/* </MainProvider> */}
+        <MainProvider>
+          <main className="flex flex-1 flex-col">{children}</main>
+          <PrismicPreview repositoryName={repositoryName} />
+        </MainProvider>
       </body>
     </html>
   )

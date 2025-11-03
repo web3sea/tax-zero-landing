@@ -4,5 +4,5 @@
   <path d="M22.8884 37.9942L5.99887 38.0145" stroke="#00303C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
   <path d="M29.6567 11.6609L29.6517 7.49144C29.6508 6.71413 30.2802 6.08323 31.0575 6.0823L35.9196 6.07647C36.6969 6.07554 37.3278 6.70492 37.3288 7.48224L37.3417 18.2322" stroke="#00303C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
   <path d="M8.3874 18.2665L8.41107 38.0115" stroke="#00303C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-  <path fillRule="evenodd" clipRule="evenodd" d="M35.0884 39.855C35.0841 36.2275 32.1399 33.2904 28.5124 33.2947C32.1399 33.2904 35.077 30.3462 35.0727 26.7187C35.077 30.3462 38.0212 33.2833 41.6487 33.279C38.0212 33.2833 35.0841 36.2275 35.0884 39.855Z" stroke="#FF6B1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+  <path fillRule="evenodd" clipRule="evenodd" d="M35.0884 39.855C35.0841 36.2275 32.1399 33.2904 28.5124 33.2947C32.1399 33.2904 35.077 30.3462 35.0727 26.7187C35.077 30.3462 38.0212 33.2833 41.6487 33.279C38.0212 33.2833 35.0841 36.2275 35.0884 39.855Z" stroke="#3F50EC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
 </svg>

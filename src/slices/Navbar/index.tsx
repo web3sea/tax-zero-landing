@@ -7,19 +7,26 @@ import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { Menu, ChevronDown, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion, AnimatePresence } from 'framer-motion'
+import WaitlistFormModal from '@/components/form/waitlist-form-modal'
 
 /**
  * Props for `Navbar`.
  */
-export type NavbarProps = SliceComponentProps<Content.NavbarSlice>
+export type NavbarProps = SliceComponentProps<Content.NavbarSlice> & {
+  context: {
+    is_waitlist_mode: boolean
+  }
+}
 
 /**
  * Component for "Navbar" Slices.
  */
-const Navbar: FC<NavbarProps> = ({ slice }) => {
+const Navbar: FC<NavbarProps> = ({ slice, context }) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null)
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
+  const isWaitlistMode = context?.is_waitlist_mode ?? false
 
   const handleMouseEnter = (label: string) => {
     setActiveDropdown(label)
@@ -212,40 +219,57 @@ const Navbar: FC<NavbarProps> = ({ slice }) => {
             {/* CTA Buttons */}
             <div className="flex items-center space-x-4">
               {slice.primary.login && (
-                <PrismicNextLink field={slice.primary.login}>
-                  <Button
-                    variant="outline"
-                    className="border-design-primary text-design-primary transition-colors duration-200 hover:bg-design-card-bg"
-                    style={{ padding: '.5rem 2rem' }}
-                  >
-                    Log in
-                  </Button>
-                </PrismicNextLink>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-design-primary text-design-primary transition-colors duration-200 hover:bg-design-card-bg"
+                  style={{ padding: '.5rem 2rem' }}
+                >
+                  <PrismicNextLink field={slice.primary.login}>Log in</PrismicNextLink>
+                </Button>
               )}
-              {slice.primary.free_strategy_session && (
-                <PrismicNextLink field={slice.primary.free_strategy_session}>
-                  <Button
-                    className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
-                    style={{ padding: '.5rem 2rem' }}
-                  >
-                    Free Strategy Session
-                  </Button>
-                </PrismicNextLink>
+              {!isWaitlistMode && slice.primary.free_strategy_session ? (
+                <Button
+                  asChild
+                  className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
+                  style={{ padding: '.5rem 2rem' }}
+                >
+                  <PrismicNextLink field={slice.primary.free_strategy_session}>
+                    {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
+                  </PrismicNextLink>
+                </Button>
+              ) : (
+                <Button
+                  className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
+                  style={{ padding: '.5rem 2rem' }}
+                  onClick={() => setIsWaitlistOpen(true)}
+                >
+                  {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
+                </Button>
               )}
+              <WaitlistFormModal open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
             </div>
           </div>
 
           {/* Tablet View: Only Free Strategy Session + Hamburger (md to lg) */}
           <div className="hidden items-center space-x-4 md:flex lg:hidden">
-            {slice.primary.free_strategy_session && (
-              <PrismicNextLink field={slice.primary.free_strategy_session}>
-                <Button
+            {!isWaitlistMode && slice.primary.free_strategy_session ? (
+              <Button className="" asChild style={{ padding: '.5rem 2rem' }}>
+                <PrismicNextLink
+                  field={slice.primary.free_strategy_session}
                   className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
-                  style={{ padding: '.5rem 2rem' }}
                 >
-                  Free Strategy Session
-                </Button>
-              </PrismicNextLink>
+                  {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
+                </PrismicNextLink>
+              </Button>
+            ) : (
+              <Button
+                className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
+                style={{ padding: '.5rem 2rem' }}
+                onClick={() => setIsWaitlistOpen(true)}
+              >
+                {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
+              </Button>
             )}
             <Button
               variant="ghost"
@@ -334,26 +358,37 @@ const Navbar: FC<NavbarProps> = ({ slice }) => {
                 transition={{ delay: 0.1, duration: 0.2 }}
                 className="space-y-4 px-6 py-6"
               >
-                {slice.primary.free_strategy_session && (
+                {!isWaitlistMode && slice.primary.free_strategy_session ? (
                   <PrismicNextLink field={slice.primary.free_strategy_session}>
                     <Button
                       className="w-full rounded-full bg-design-accent py-3 text-white hover:bg-design-accent-dark"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      Free Strategy Session
+                      {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
                     </Button>
                   </PrismicNextLink>
+                ) : (
+                  <Button
+                    className="w-full rounded-full bg-design-accent py-3 text-white hover:bg-design-accent-dark"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false)
+                      setIsWaitlistOpen(true)
+                    }}
+                  >
+                    {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
+                  </Button>
                 )}
                 {slice.primary.login && (
-                  <PrismicNextLink field={slice.primary.login}>
-                    <Button
-                      variant="outline"
-                      className="w-full rounded-full border-design-primary py-3 text-design-primary hover:bg-design-card-bg"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Log in
-                    </Button>
-                  </PrismicNextLink>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full rounded-full border-design-primary py-3 text-design-primary hover:bg-design-card-bg"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <PrismicNextLink field={slice.primary.login}>
+                      {slice.primary.login?.text}
+                    </PrismicNextLink>
+                  </Button>
                 )}
               </motion.div>
 

@@ -1,32 +1,36 @@
 import { Metadata } from 'next'
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils/cn'
 
-export { cn };
+export { cn }
 
 export function isSSR() {
   return typeof window === 'undefined'
 }
 
 export function constructMetadata({
-  title = 'Domain Money - Financial Planning, Investment Strategy, and Wealth Management',
-  description = 'Domain Money, your trusted financial advisor. Specializing in financial planning, investment strategy, and wealth management.',
+  title = 'Tax Zero - Tax Planning, Tax Optimization, and Tax Compliance',
+  description = 'Tax Zero, your trusted tax advisor. Specializing in tax planning, tax optimization, and tax compliance.',
   image = '/og-image.png',
   icons = '/favicon.ico',
   noIndex = false,
+  keywords = ['Tax Zero', 'Tax Planning', 'Tax Optimization', 'Tax Compliance'],
 }: {
   title?: string
   description?: string
   image?: string
   icons?: string
   noIndex?: boolean
+  keywords?: string[]
 } = {}): Metadata {
   return {
     title,
     description,
-    authors: [{ name: 'Domain Money' }],
+    keywords: keywords,
+    authors: [{ name: 'Tax Zero' }],
     openGraph: {
       title,
-      description: 'Domain Money, your trusted financial advisor. Specializing in financial planning, investment strategy, and wealth management.',
+      description:
+        'Tax Zero, your trusted tax advisor. Specializing in tax planning, tax optimization, and tax compliance.',
       type: 'website',
       images: [
         {
@@ -37,7 +41,8 @@ export function constructMetadata({
     twitter: {
       card: 'summary_large_image',
       title,
-      description: 'Domain Money, your trusted financial advisor. Specializing in financial planning, investment strategy, and wealth management.',
+      description:
+        'Tax Zero, your trusted tax advisor. Specializing in tax planning, tax optimization, and tax compliance.',
       images: [image],
     },
     icons: [
@@ -47,11 +52,11 @@ export function constructMetadata({
       { rel: 'apple-touch-icon', url: '/apple-touch-icon.png', sizes: '180x180' },
     ],
     manifest: '/site.webmanifest',
-    metadataBase: new URL('https://domainmoney.com/'),
+    metadataBase: new URL('https://taxzeroclub.com/'),
     appleWebApp: {
       capable: true,
       statusBarStyle: 'black-translucent',
-      title: 'Domain Money',
+      title: 'Tax Zero',
     },
     ...(noIndex && {
       robots: {

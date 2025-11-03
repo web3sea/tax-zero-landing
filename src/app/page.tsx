@@ -10,7 +10,11 @@ export default async function LandingPage() {
   const client = createClient()
   const page = await client.getSingle('landing').catch(() => notFound())
 
-  return <SliceZone slices={page.data.slices} components={components} />
+  const staticContext = {
+    is_waitlist_mode: page.data.is_waitlist_mode,
+  }
+
+  return <SliceZone slices={page.data.slices} context={staticContext} components={components} />
 }
 
 export async function generateMetadata(): Promise<Metadata> {

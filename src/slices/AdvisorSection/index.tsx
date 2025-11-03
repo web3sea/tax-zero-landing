@@ -24,10 +24,10 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
             <PrismicRichText
               field={slice.primary.title}
               components={{
-                heading2: ({ children }) => (
-                  <h2 className="mb-4 font-serif text-3xl font-light leading-tight tracking-tight sm:text-4xl md:mb-6 md:text-5xl lg:text-6xl">
+                heading3: ({ children }) => (
+                  <h3 className="mb-4 font-serif text-3xl font-light leading-tight tracking-tight sm:text-4xl md:mb-6 md:text-5xl lg:text-6xl">
                     {children}
-                  </h2>
+                  </h3>
                 ),
               }}
             />
@@ -43,13 +43,13 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
               }}
             />
 
-            <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start md:mb-8">
+            <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row md:mb-8 lg:justify-start">
               {slice.primary.button && (
                 <PrismicNextLink
                   field={slice.primary.button}
-                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-2 font-proxima text-base text-design-primary transition-colors hover:bg-gray-100 md:px-8 md:py-3 md:text-lg sm:w-auto"
+                  className="flex w-auto min-w-[280px] items-center justify-center rounded-[45px] bg-white px-5 py-[0.3rem] pr-2 font-proxima text-[1.125rem] leading-[1.5] text-design-primary transition-colors hover:bg-gray-100"
                 >
-                  <span className="mr-4 md:mr-6">{'Get to know our advisors'}</span>
+                  <span className="mr-4">{slice.primary.button.text}</span>
                   <svg
                     width="32"
                     height="32"
@@ -58,9 +58,27 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <ellipse cx="18.0058" cy="17.9619" rx="17.8389" ry="17.7764" fill="#e25f17"></ellipse>
-                    <path d="M18.4882 23.7305L24.2772 17.9617L18.4882 12.1929" stroke="#112422" strokeWidth="1.61" strokeMiterlimit="10" strokeLinecap="square"></path>
-                    <path d="M23.4728 17.9609L11.7339 17.9609" stroke="#112422" strokeWidth="1.61" strokeMiterlimit="10" strokeLinecap="square"></path>
+                    <ellipse
+                      cx="18.0058"
+                      cy="17.9619"
+                      rx="17.8389"
+                      ry="17.7764"
+                      fill="#3F50EC"
+                    ></ellipse>
+                    <path
+                      d="M18.4882 23.7305L24.2772 17.9617L18.4882 12.1929"
+                      stroke="#fff"
+                      strokeWidth="1.61"
+                      strokeMiterlimit="10"
+                      strokeLinecap="square"
+                    ></path>
+                    <path
+                      d="M23.4728 17.9609L11.7339 17.9609"
+                      stroke="#fff"
+                      strokeWidth="1.61"
+                      strokeMiterlimit="10"
+                      strokeLinecap="square"
+                    ></path>
                   </svg>
                 </PrismicNextLink>
               )}
@@ -68,7 +86,7 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
 
             {/* Badges */}
             {Array.isArray(slice.primary.badges) && slice.primary.badges.length > 0 && (
-              <div className="flex flex-col items-center justify-center gap-3 md:gap-4 sm:flex-row lg:justify-start">
+              <div className="flex flex-col items-center justify-center gap-3 sm:flex-row md:gap-4 lg:justify-start">
                 {slice.primary.badges.map((badge, index) => (
                   <div
                     key={index}

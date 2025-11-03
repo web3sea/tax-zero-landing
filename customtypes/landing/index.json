@@ -6,6 +6,15 @@
   "status": true,
   "json": {
     "Main": {
+      "is_waitlist_mode": {
+        "type": "Boolean",
+        "config": {
+          "label": "is_waitlist_mode",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": true
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

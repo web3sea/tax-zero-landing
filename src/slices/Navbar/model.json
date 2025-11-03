@@ -20,13 +20,6 @@
             "thumbnails": []
           }
         },
-        "logo_name": {
-          "type": "Text",
-          "config": {
-            "label": "Logo name",
-            "placeholder": ""
-          }
-        },
         "about": {
           "type": "Link",
           "config": {

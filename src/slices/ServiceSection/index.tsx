@@ -19,7 +19,7 @@ const ServiceSection: FC<ServiceSectionProps> = ({ slice }) => {
       className="bg-white py-20"
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6 lg:gap-8">
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5 lg:gap-8">
           {slice.primary.services.map((service, index) => (
             <div key={index} className="flex flex-col items-start text-left">
               <div className="mb-4 lg:mb-6">
@@ -32,21 +32,29 @@ const ServiceSection: FC<ServiceSectionProps> = ({ slice }) => {
                     className="h-11 w-11"
                   />
                 ) : (
-                  <div className="h-11 w-11 bg-gray-200 rounded"></div>
+                  <div className="h-11 w-11 rounded bg-gray-200"></div>
                 )}
               </div>
-                <PrismicRichText
-                  field={service.title}
-                  components={{
-                    heading3: ({ children }) => <h3 className="mb-3 font-proxima text-lg font-semibold leading-tight text-design-primary lg:mb-4 lg:text-xl">{children}</h3>,
-                  }}
-                />
-                <PrismicRichText
-                  field={service.description}
-                  components={{
-                    paragraph: ({ children }) => <p className="font-proxima text-sm leading-relaxed text-design-primary">{children}</p>,
-                  }}
-                />
+              <PrismicRichText
+                field={service.title}
+                components={{
+                  heading3: ({ children }) => (
+                    <h3 className="mb-3 font-proxima text-lg font-semibold leading-tight text-design-primary lg:mb-4 lg:text-xl">
+                      {children}
+                    </h3>
+                  ),
+                }}
+              />
+              <PrismicRichText
+                field={service.description}
+                components={{
+                  paragraph: ({ children }) => (
+                    <p className="font-proxima text-sm leading-relaxed text-design-primary">
+                      {children}
+                    </p>
+                  ),
+                }}
+              />
             </div>
           ))}
         </div>

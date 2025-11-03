@@ -1,17 +1,25 @@
-import { FC } from 'react'
+'use client'
+import { FC, useState } from 'react'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
 import { PrismicNextLink } from '@prismicio/next'
+import WaitlistFormModal from '@/components/form/waitlist-form-modal'
 
 /**
  * Props for `Hero`.
  */
-export type HeroProps = SliceComponentProps<Content.HeroSlice>
+export type HeroProps = SliceComponentProps<Content.HeroSlice> & {
+  context: {
+    is_waitlist_mode: boolean
+  }
+}
 
 /**
  * Component for "Hero" Slices.
  */
-const Hero: FC<HeroProps> = ({ slice }) => {
+const Hero: FC<HeroProps> = ({ slice, context }) => {
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
+  const isWaitlistMode = context?.is_waitlist_mode ?? true
   const poster = slice.primary.video_url ?? ''
 
   return (
@@ -67,12 +75,12 @@ const Hero: FC<HeroProps> = ({ slice }) => {
                 ),
               }}
             />
-            {slice.primary.button ? (
+            {!isWaitlistMode ? (
               <PrismicNextLink
                 field={slice.primary.button}
-                className="group inline-flex items-center rounded-full bg-white px-8 py-2 transition-colors hover:bg-gray-100"
+                className="group inline-flex items-center rounded-full bg-white py-2 pl-8 pr-2 transition-colors hover:bg-gray-100"
               >
-                <span className="mr-3 font-proxima text-xl">
+                <span className="mr-8 font-proxima text-xl">
                   {slice.primary.button.text ?? 'Free Strategy Session'}
                 </span>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-design-accent transition-colors group-hover:bg-design-accent-dark">
@@ -94,10 +102,38 @@ const Hero: FC<HeroProps> = ({ slice }) => {
                   </svg>
                 </div>
               </PrismicNextLink>
-            ) : null}
+            ) : (
+              <button
+                className="group inline-flex items-center rounded-full bg-white py-2 pl-8 pr-2 transition-colors hover:bg-gray-100"
+                onClick={() => setIsWaitlistOpen(true)}
+              >
+                <span className="mr-8 font-proxima text-xl">
+                  {slice.primary.button.text ?? 'Free Strategy Session'}
+                </span>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-design-accent transition-colors group-hover:bg-design-accent-dark">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="text-white"
+                  >
+                    <path
+                      d="M9 5l7 7-7 7"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+            )}
           </div>
         </div>
       </div>
+      <WaitlistFormModal open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
     </section>
   )
 }
