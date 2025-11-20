@@ -57,6 +57,83 @@ type ContentRelationshipFieldWithData<
   >
 }[Exclude<TCustomType[number], string>['id']]
 
+type BlogPageDocumentDataSlicesSlice =
+  | MasteredSectionSlice
+  | HeroSlice
+  | WhyDomainSectionSlice
+  | TestimonialsSectionSlice
+  | ProcessSectionSlice
+  | MembershipSectionSlice
+  | ServiceSectionSlice
+  | FaqSectionSlice
+  | FeaturedSectionSlice
+  | AdvisorSectionSlice
+  | FooterSlice
+  | MarkdownContentSlice
+  | NavbarSlice
+
+/**
+ * Content for Blog Page documents
+ */
+interface BlogPageDocumentData {
+  /**
+   * Slice Zone field in *Blog Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<BlogPageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Blog Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Blog Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Blog Page document from Prismic
+ *
+ * - **API ID**: `blog_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+  Simplify<BlogPageDocumentData>,
+  'blog_page',
+  Lang
+>
+
 type LandingDocumentDataSlicesSlice =
   | FooterSlice
   | ServiceSectionSlice
@@ -145,7 +222,162 @@ export type LandingDocument<Lang extends string = string> = prismic.PrismicDocum
   Lang
 >
 
-export type AllDocumentTypes = LandingDocument
+type PrivacyPolicyDocumentDataSlicesSlice =
+  | HeroSlice
+  | ProcessSectionSlice
+  | MasteredSectionSlice
+  | MembershipSectionSlice
+  | WhyDomainSectionSlice
+  | TestimonialsSectionSlice
+  | ServiceSectionSlice
+  | FooterSlice
+  | FaqSectionSlice
+  | AdvisorSectionSlice
+  | FeaturedSectionSlice
+  | NavbarSlice
+  | MarkdownContentSlice
+
+/**
+ * Content for Privacy Policy documents
+ */
+interface PrivacyPolicyDocumentData {
+  /**
+   * Slice Zone field in *Privacy Policy*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: privacy_policy.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<PrivacyPolicyDocumentDataSlicesSlice> /**
+   * Meta Title field in *Privacy Policy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: privacy_policy.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Privacy Policy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: privacy_policy.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Privacy Policy*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: privacy_policy.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Privacy Policy document from Prismic
+ *
+ * - **API ID**: `privacy_policy`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PrivacyPolicyDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<PrivacyPolicyDocumentData>,
+  'privacy_policy',
+  Lang
+>
+
+type TermOfServicesDocumentDataSlicesSlice =
+  | HeroSlice
+  | WhyDomainSectionSlice
+  | ProcessSectionSlice
+  | TestimonialsSectionSlice
+  | ServiceSectionSlice
+  | FooterSlice
+  | MembershipSectionSlice
+  | MasteredSectionSlice
+  | FeaturedSectionSlice
+  | FaqSectionSlice
+  | AdvisorSectionSlice
+  | MarkdownContentSlice
+  | NavbarSlice
+
+/**
+ * Content for Term of Services documents
+ */
+interface TermOfServicesDocumentData {
+  /**
+   * Slice Zone field in *Term of Services*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: term_of_services.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<TermOfServicesDocumentDataSlicesSlice> /**
+   * Meta Title field in *Term of Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: term_of_services.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Term of Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: term_of_services.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Term of Services*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: term_of_services.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Term of Services document from Prismic
+ *
+ * - **API ID**: `term_of_services`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TermOfServicesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<TermOfServicesDocumentData>, 'term_of_services', Lang>
+
+export type AllDocumentTypes =
+  | BlogPageDocument
+  | LandingDocument
+  | PrivacyPolicyDocument
+  | TermOfServicesDocument
 
 /**
  * Item in *AdvisorSection → Default → Primary → Badges*
@@ -619,6 +851,71 @@ type HeroSliceVariation = HeroSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>
+
+/**
+ * Primary content in *MarkdownContent → Default → Primary*
+ */
+export interface MarkdownContentSliceDefaultPrimary {
+  /**
+   * Title field in *MarkdownContent → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: markdown_content.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Last Updated At field in *MarkdownContent → Default → Primary*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: markdown_content.default.primary.last_updated_at
+   * - **Documentation**: https://prismic.io/docs/fields/timestamp
+   */
+  last_updated_at: prismic.TimestampField
+
+  /**
+   * content field in *MarkdownContent → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: markdown_content.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField
+}
+
+/**
+ * Default variation for MarkdownContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MarkdownContentSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<MarkdownContentSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *MarkdownContent*
+ */
+type MarkdownContentSliceVariation = MarkdownContentSliceDefault
+
+/**
+ * MarkdownContent Shared Slice
+ *
+ * - **API ID**: `markdown_content`
+ * - **Description**: MarkdownContent
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MarkdownContentSlice = prismic.SharedSlice<
+  'markdown_content',
+  MarkdownContentSliceVariation
+>
 
 /**
  * Primary content in *MasteredSection → Default → Primary*
@@ -1344,9 +1641,18 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
+      BlogPageDocument,
+      BlogPageDocumentData,
+      BlogPageDocumentDataSlicesSlice,
       LandingDocument,
       LandingDocumentData,
       LandingDocumentDataSlicesSlice,
+      PrivacyPolicyDocument,
+      PrivacyPolicyDocumentData,
+      PrivacyPolicyDocumentDataSlicesSlice,
+      TermOfServicesDocument,
+      TermOfServicesDocumentData,
+      TermOfServicesDocumentDataSlicesSlice,
       AllDocumentTypes,
       AdvisorSectionSlice,
       AdvisorSectionSliceDefaultPrimaryBadgesItem,
@@ -1371,6 +1677,10 @@ declare module '@prismicio/client' {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      MarkdownContentSlice,
+      MarkdownContentSliceDefaultPrimary,
+      MarkdownContentSliceVariation,
+      MarkdownContentSliceDefault,
       MasteredSectionSlice,
       MasteredSectionSliceDefaultPrimary,
       MasteredSectionSliceVariation,

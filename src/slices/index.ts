@@ -8,6 +8,7 @@ export const components = {
   featured_section: dynamic(() => import('./FeaturedSection')),
   footer: dynamic(() => import('./Footer')),
   hero: dynamic(() => import('./Hero')),
+  markdown_content: dynamic(() => import('./MarkdownContent')),
   mastered_section: dynamic(() => import('./MasteredSection')),
   membership_section: dynamic(() => import('./MembershipSection')),
   navbar: dynamic(() => import('./Navbar')),

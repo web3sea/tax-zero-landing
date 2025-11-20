@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import { PrismicNextLink } from '@prismicio/next'
+import PrismicLink from '@/components/common/prismic-link'
 
 /**
  * Props for `AdvisorSection`.
@@ -45,9 +45,10 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
 
             <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row md:mb-8 lg:justify-start">
               {slice.primary.button && (
-                <PrismicNextLink
+                <PrismicLink
                   field={slice.primary.button}
                   className="flex w-auto min-w-[280px] items-center justify-center rounded-[45px] bg-white px-5 py-[0.3rem] pr-2 font-proxima text-[1.125rem] leading-[1.5] text-design-primary transition-colors hover:bg-gray-100"
+                  fallbackText={slice.primary.button.text}
                 >
                   <span className="mr-4">{slice.primary.button.text}</span>
                   <svg
@@ -80,7 +81,7 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
                       strokeLinecap="square"
                     ></path>
                   </svg>
-                </PrismicNextLink>
+                </PrismicLink>
               )}
             </div>
 

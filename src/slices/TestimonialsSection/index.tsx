@@ -3,7 +3,8 @@
 import { FC, useEffect, useRef, useState, useCallback } from 'react'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
+import { PrismicNextImage } from '@prismicio/next'
+import PrismicLink from '@/components/common/prismic-link'
 import StarReview from '@/components/ui/star-review'
 
 /**
@@ -230,13 +231,13 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
         {/* See More Button */}
         {slice.primary.see_more_button && (
           <div className="text-center">
-            <PrismicNextLink
+            <PrismicLink
               field={slice.primary.see_more_button}
               className="font-proxima border-2 border-design-primary text-design-primary rounded-full font-normal bg-white hover:bg-design-card-bg transition-colors text-base md:text-lg shadow-none"
-              style={{ padding: '.6rem 1.5rem' }}
+              fallbackText="See more testimonials"
             >
               {'See more testimonials'}
-            </PrismicNextLink>
+            </PrismicLink>
           </div>
         )}
 

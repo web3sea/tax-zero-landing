@@ -1,7 +1,8 @@
 import { FC } from 'react'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import { PrismicNextLink, PrismicNextImage } from '@prismicio/next'
+import { PrismicNextImage } from '@prismicio/next'
+import PrismicLink from '@/components/common/prismic-link'
 
 /**
  * Props for `MasteredSection`.
@@ -48,12 +49,13 @@ const MasteredSection: FC<MasteredSectionProps> = ({ slice }) => {
 
             {/* CTA Button */}
             {slice.primary.button && (
-              <PrismicNextLink
+              <PrismicLink
                 field={slice.primary.button}
                 className="mt-8 inline-block w-fit rounded-full border-2 border-design-primary bg-white px-6 py-3 font-proxima text-design-primary transition-colors hover:bg-design-primary hover:text-white"
+                fallbackText="Try our dashboard"
               >
                 {slice.primary.button?.text || 'Try our dashboard'}
-              </PrismicNextLink>
+              </PrismicLink>
             )}
           </div>
 

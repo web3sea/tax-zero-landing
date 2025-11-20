@@ -3,7 +3,8 @@
 import { FC, useState, useEffect } from 'react'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
-import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
+import { PrismicNextImage } from '@prismicio/next'
+import PrismicLink from '@/components/common/prismic-link'
 import { Menu, ChevronDown, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -192,25 +193,27 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                             className="absolute right-0 top-full z-50 mt-2 w-48 rounded-lg border border-gray-200 bg-white shadow-lg"
                           >
                             {item.children?.map((child, index) => (
-                              <PrismicNextLink
+                              <PrismicLink
                                 key={index}
                                 field={child.link}
                                 className="block px-4 py-3 text-sm text-design-primary transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg hover:bg-design-card-bg"
+                                fallbackText={child.label}
                               >
                                 {child.label}
-                              </PrismicNextLink>
+                              </PrismicLink>
                             ))}
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <PrismicNextLink
+                    <PrismicLink
                       field={item.link}
                       className="text-design-primary transition-colors duration-200 hover:text-design-primary-light"
+                      fallbackText={item.label}
                     >
                       {item.label}
-                    </PrismicNextLink>
+                    </PrismicLink>
                   )}
                 </div>
               ))}
@@ -234,9 +237,12 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                   className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
                   style={{ padding: '.5rem 2rem' }}
                 >
-                  <PrismicNextLink field={slice.primary.free_strategy_session}>
+                  <PrismicLink
+                    field={slice.primary.free_strategy_session}
+                    fallbackText="Free Strategy Session"
+                  >
                     {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
-                  </PrismicNextLink>
+                  </PrismicLink>
                 </Button>
               ) : (
                 <Button
@@ -255,12 +261,13 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
           <div className="hidden items-center space-x-4 md:flex lg:hidden">
             {!isWaitlistMode && slice.primary.free_strategy_session ? (
               <Button className="" asChild style={{ padding: '.5rem 2rem' }}>
-                <PrismicNextLink
+                <PrismicLink
                   field={slice.primary.free_strategy_session}
                   className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
+                  fallbackText="Free Strategy Session"
                 >
                   {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
-                </PrismicNextLink>
+                </PrismicLink>
               </Button>
             ) : (
               <Button
@@ -359,14 +366,17 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                 className="space-y-4 px-6 py-6"
               >
                 {!isWaitlistMode && slice.primary.free_strategy_session ? (
-                  <PrismicNextLink field={slice.primary.free_strategy_session}>
+                  <PrismicLink
+                    field={slice.primary.free_strategy_session}
+                    fallbackText="Free Strategy Session"
+                  >
                     <Button
                       className="w-full rounded-full bg-design-accent py-3 text-white hover:bg-design-accent-dark"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
                     </Button>
-                  </PrismicNextLink>
+                  </PrismicLink>
                 ) : (
                   <Button
                     className="w-full rounded-full bg-design-accent py-3 text-white hover:bg-design-accent-dark"
@@ -385,9 +395,9 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                     className="w-full rounded-full border-design-primary py-3 text-design-primary hover:bg-design-card-bg"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <PrismicNextLink field={slice.primary.login}>
+                    <PrismicLink field={slice.primary.login} fallbackText="Log in">
                       {slice.primary.login?.text}
-                    </PrismicNextLink>
+                    </PrismicLink>
                   </Button>
                 )}
               </motion.div>
@@ -433,14 +443,15 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                             >
                               <div className="ml-4 space-y-1 pb-2">
                                 {item.children.map((child, childIndex) => (
-                                  <PrismicNextLink
+                                  <PrismicLink
                                     key={childIndex}
                                     field={child.link}
                                     className="block py-2 text-sm text-design-primary transition-colors hover:text-design-accent"
+                                    fallbackText={child.label}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                   >
                                     {child.label}
-                                  </PrismicNextLink>
+                                  </PrismicLink>
                                 ))}
                               </div>
                             </motion.div>
@@ -448,13 +459,14 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                         </AnimatePresence>
                       </div>
                     ) : (
-                      <PrismicNextLink
+                      <PrismicLink
                         field={item.link}
                         className="flex items-center justify-between border-b border-gray-100 py-4 font-medium text-design-primary transition-colors hover:text-design-accent"
+                        fallbackText={item.label}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <span>{item.label}</span>
-                      </PrismicNextLink>
+                      </PrismicLink>
                     )}
                   </motion.div>
                 ))}

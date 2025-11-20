@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { PrismicNextLink, PrismicNextImage } from '@prismicio/next'
+import PrismicLink from '@/components/common/prismic-link'
 
 /**
  * Props for `Footer`.
@@ -65,7 +66,7 @@ const Footer: FC<FooterProps> = ({ slice }) => {
             <ul className="space-y-2 text-center md:text-left">
               {slice.primary.about.map((item, index) => (
                 <li key={index}>
-                  <PrismicNextLink
+                  <PrismicLink
                     field={item.link_item}
                     className="text-center text-sm text-gray-300 transition-colors hover:text-white md:text-left"
                   />
@@ -85,52 +86,46 @@ const Footer: FC<FooterProps> = ({ slice }) => {
             </p>
             <div className="flex flex-wrap justify-center gap-4 md:justify-end">
               {slice.primary.log_in && (
-                <PrismicNextLink
+                <PrismicLink
                   field={slice.primary.log_in}
                   className="text-xs text-gray-400 transition-colors hover:text-white"
-                >
-                  Log In
-                </PrismicNextLink>
+                  fallbackText="Log In"
+                />
               )}
               {slice.primary.privacy_policy && (
-                <PrismicNextLink
+                <PrismicLink
                   field={slice.primary.privacy_policy}
                   className="text-xs text-gray-400 transition-colors hover:text-white"
-                >
-                  Privacy Policy
-                </PrismicNextLink>
+                  fallbackText="Privacy Policy"
+                />
               )}
               {slice.primary.terms_of_use && (
-                <PrismicNextLink
+                <PrismicLink
                   field={slice.primary.terms_of_use}
                   className="text-xs text-gray-400 transition-colors hover:text-white"
-                >
-                  Terms of Use
-                </PrismicNextLink>
+                  fallbackText="Terms of Use"
+                />
               )}
               {slice.primary.form_adv && (
-                <PrismicNextLink
+                <PrismicLink
                   field={slice.primary.form_adv}
                   className="text-xs text-gray-400 transition-colors hover:text-white"
-                >
-                  Form ADV
-                </PrismicNextLink>
+                  fallbackText="Form ADV"
+                />
               )}
               {slice.primary.legal && (
-                <PrismicNextLink
+                <PrismicLink
                   field={slice.primary.legal}
                   className="text-xs text-gray-400 transition-colors hover:text-white"
-                >
-                  Legal
-                </PrismicNextLink>
+                  fallbackText="Legal"
+                />
               )}
               {slice.primary.form_crs && (
-                <PrismicNextLink
+                <PrismicLink
                   field={slice.primary.form_crs}
                   className="text-xs text-gray-400 transition-colors hover:text-white"
-                >
-                  Form CRS
-                </PrismicNextLink>
+                  fallbackText="Form CRS"
+                />
               )}
             </div>
           </div>

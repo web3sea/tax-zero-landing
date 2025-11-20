@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "butter",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Elit sit officia velit magna excepteur ullamco excepteur."
+						}
+					}
+				]
+			},
+			"last_updated_at": {
+				"__TYPE__": "FieldContent",
+				"type": "Timestamp",
+				"value": "2023-04-01T09:25:29Z"
+			}
+		},
+		"items": []
+	}
+]

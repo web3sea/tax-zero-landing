@@ -3,7 +3,8 @@
 import { FC, useState } from 'react'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
+import { PrismicNextImage } from '@prismicio/next'
+import PrismicLink from '@/components/common/prismic-link'
 import Image from 'next/image'
 import WaitlistFormModal from '@/components/form/waitlist-form-modal'
 
@@ -94,9 +95,10 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
         {/* CTA */}
         {!isWaitlistMode && (
           <div className="text-center">
-            <PrismicNextLink
+            <PrismicLink
               field={slice.primary.button}
               className="mx-auto inline-flex items-center rounded-full bg-design-accent px-2 py-2 font-proxima text-lg text-white shadow-md transition-colors duration-200 hover:bg-design-accent-light"
+              fallbackText={slice.primary.button.text}
             >
               <span className="ml-4 mr-4 font-proxima text-xl">{slice.primary.button.text}</span>
               <Image
@@ -106,7 +108,7 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
                 height={40}
                 className="h-10 w-10"
               />
-            </PrismicNextLink>
+            </PrismicLink>
           </div>
         )}
 

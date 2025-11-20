@@ -2,7 +2,7 @@
 import { FC, useState } from 'react'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import { PrismicNextLink } from '@prismicio/next'
+import PrismicLink from '@/components/common/prismic-link'
 import WaitlistFormModal from '@/components/form/waitlist-form-modal'
 
 /**
@@ -76,9 +76,10 @@ const Hero: FC<HeroProps> = ({ slice, context }) => {
               }}
             />
             {!isWaitlistMode ? (
-              <PrismicNextLink
+              <PrismicLink
                 field={slice.primary.button}
                 className="group inline-flex items-center rounded-full bg-white py-2 pl-8 pr-2 transition-colors hover:bg-gray-100"
+                fallbackText="Free Strategy Session"
               >
                 <span className="mr-8 font-proxima text-xl">
                   {slice.primary.button.text ?? 'Free Strategy Session'}
@@ -101,7 +102,7 @@ const Hero: FC<HeroProps> = ({ slice, context }) => {
                     />
                   </svg>
                 </div>
-              </PrismicNextLink>
+              </PrismicLink>
             ) : (
               <button
                 className="group inline-flex items-center rounded-full bg-white py-2 pl-8 pr-2 transition-colors hover:bg-gray-100"

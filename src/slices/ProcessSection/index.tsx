@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import { PrismicNextLink } from '@prismicio/next'
+import PrismicLink from '@/components/common/prismic-link'
 import ProcessCard from '@/components/landing/process/process-card'
 
 /**
@@ -54,7 +54,7 @@ const ProcessSection: FC<ProcessSectionProps> = ({ slice }) => {
             For Illustrative Purposes Only
           </p>
           {slice.primary.button && (
-            <PrismicNextLink
+            <PrismicLink
               field={slice.primary.button}
               className="font-proxima inline-block bg-white text-design-primary rounded-full font-normal shadow-none transition-all duration-200 hover:bg-design-card-bg hover:text-design-primary focus:outline-none"
               style={{
@@ -62,9 +62,10 @@ const ProcessSection: FC<ProcessSectionProps> = ({ slice }) => {
                 boxShadow: 'none',
                 borderColor: 'hsl(var(--design-primary))',
               }}
+              fallbackText="See how we work with you"
             >
               {'See how we work with you'}
-            </PrismicNextLink>
+            </PrismicLink>
           )}
         </div>
       </div>
