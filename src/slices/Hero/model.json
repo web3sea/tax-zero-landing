@@ -47,6 +47,37 @@
             "label": "video url",
             "placeholder": ""
           }
+        },
+        "carousel_images": {
+          "type": "Group",
+          "config": {
+            "label": "carousel_images",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "carousel_mode": {
+          "type": "Select",
+          "config": {
+            "label": "carousel_mode",
+            "placeholder": "",
+            "options": [
+              "fade_transition",
+              "slide_transition",
+              "zoom_fade",
+              "parallax_effect",
+              "ken_burns_effect"
+            ]
+          }
         }
       },
       "items": {}

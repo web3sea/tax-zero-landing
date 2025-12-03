@@ -781,6 +781,21 @@ type FooterSliceVariation = FooterSliceDefault
 export type FooterSlice = prismic.SharedSlice<'footer', FooterSliceVariation>
 
 /**
+ * Item in *Hero → Default → Primary → carousel_images*
+ */
+export interface HeroSliceDefaultPrimaryCarouselImagesItem {
+  /**
+   * image field in *Hero → Default → Primary → carousel_images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.carousel_images[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -823,6 +838,28 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   video_url: prismic.KeyTextField
+
+  /**
+   * carousel_images field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.carousel_images[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  carousel_images: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryCarouselImagesItem>>
+
+  /**
+   * carousel_mode field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.carousel_mode
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  carousel_mode: prismic.SelectField<
+    'fade_transition' | 'slide_transition' | 'zoom_fade' | 'parallax_effect' | 'ken_burns_effect'
+  >
 }
 
 /**
@@ -1674,6 +1711,7 @@ declare module '@prismicio/client' {
       FooterSliceVariation,
       FooterSliceDefault,
       HeroSlice,
+      HeroSliceDefaultPrimaryCarouselImagesItem,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
