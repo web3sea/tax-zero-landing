@@ -7,6 +7,8 @@ import { PrismicNextImage } from '@prismicio/next'
 import PrismicLink from '@/components/common/prismic-link'
 import Image from 'next/image'
 import WaitlistFormModal from '@/components/form/waitlist-form-modal'
+import { FadeInView } from '@/components/feature/FadeInView'
+import { AnimatedCard } from '@/components/feature/AnimatedCard'
 
 /**
  * Props for `MembershipSection`.
@@ -31,7 +33,7 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
     >
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading + Description */}
-        <div className="mb-16 text-center">
+        <FadeInView className="mb-16 text-center">
           {typeof slice.primary.title === 'string' ? (
             <h1 className="mb-6 font-serif text-5xl font-light leading-tight tracking-tight text-design-primary lg:text-6xl">
               {slice.primary.title}
@@ -47,12 +49,12 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
               ),
             }}
           />
-        </div>
+        </FadeInView>
 
         {/* Benefits grid */}
         <div className="mb-12 grid gap-8 md:grid-cols-3">
           {slice.primary.cards?.map((item, index) => (
-            <div key={index} className="rounded-xl bg-design-card-bg p-8">
+            <AnimatedCard key={index} index={index} className="rounded-xl bg-design-card-bg p-8">
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg">
                 {item.image?.url ? (
                   <PrismicNextImage
@@ -88,61 +90,63 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
                   ),
                 }}
               />
-            </div>
+            </AnimatedCard>
           ))}
         </div>
 
         {/* CTA */}
-        {!isWaitlistMode && (
-          <div className="text-center">
-            <PrismicLink
-              field={slice.primary.button}
-              className="mx-auto inline-flex items-center rounded-full bg-design-accent px-2 py-2 font-proxima text-lg text-white shadow-md transition-colors duration-200 hover:bg-design-accent-light"
-              fallbackText={slice.primary.button.text}
-            >
-              <span className="ml-4 mr-4 font-proxima text-xl">{slice.primary.button.text}</span>
-              <Image
-                src="/svg/icons/arrow-right.svg"
-                alt="Arrow"
-                width={40}
-                height={40}
-                className="h-10 w-10"
-              />
-            </PrismicLink>
-          </div>
-        )}
+        <FadeInView delay={0.3}>
+          {!isWaitlistMode && (
+            <div className="text-center">
+              <PrismicLink
+                field={slice.primary.button}
+                className="mx-auto inline-flex items-center rounded-full bg-design-accent px-2 py-2 font-proxima text-lg text-white shadow-md transition-colors duration-200 hover:bg-design-accent-light"
+                fallbackText={slice.primary.button.text}
+              >
+                <span className="ml-4 mr-4 font-proxima text-xl">{slice.primary.button.text}</span>
+                <Image
+                  src="/svg/icons/arrow-right.svg"
+                  alt="Arrow"
+                  width={40}
+                  height={40}
+                  className="h-10 w-10"
+                />
+              </PrismicLink>
+            </div>
+          )}
 
-        {isWaitlistMode ? (
-          <div className="text-center">
-            <button
-              className="mx-auto inline-flex items-center rounded-full bg-design-accent px-2 py-2 font-proxima text-lg text-white shadow-md transition-colors duration-200 hover:bg-design-accent-light"
-              onClick={() => setIsWaitlistOpen(true)}
-            >
-              <span className="ml-4 mr-4 font-proxima text-xl">{slice.primary.button.text}</span>
-              <Image
-                src="/svg/icons/arrow-right.svg"
-                alt="Arrow"
-                width={40}
-                height={40}
-                className="h-10 w-10"
-              />
-            </button>
-          </div>
-        ) : null}
+          {isWaitlistMode ? (
+            <div className="text-center">
+              <button
+                className="mx-auto inline-flex items-center rounded-full bg-design-accent px-2 py-2 font-proxima text-lg text-white shadow-md transition-colors duration-200 hover:bg-design-accent-light"
+                onClick={() => setIsWaitlistOpen(true)}
+              >
+                <span className="ml-4 mr-4 font-proxima text-xl">{slice.primary.button.text}</span>
+                <Image
+                  src="/svg/icons/arrow-right.svg"
+                  alt="Arrow"
+                  width={40}
+                  height={40}
+                  className="h-10 w-10"
+                />
+              </button>
+            </div>
+          ) : null}
 
-        {/* Citation */}
-        {slice.primary.citation_text && (
-          <div className="mt-8 text-center">
-            <PrismicRichText
-              field={slice.primary.citation_text}
-              components={{
-                paragraph: ({ children }) => (
-                  <p className="font-proxima text-xs text-black">{children}</p>
-                ),
-              }}
-            />
-          </div>
-        )}
+          {/* Citation */}
+          {slice.primary.citation_text && (
+            <div className="mt-8 text-center">
+              <PrismicRichText
+                field={slice.primary.citation_text}
+                components={{
+                  paragraph: ({ children }) => (
+                    <p className="font-proxima text-xs text-black">{children}</p>
+                  ),
+                }}
+              />
+            </div>
+          )}
+        </FadeInView>
       </div>
       <WaitlistFormModal open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
     </section>

@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
 import PrismicLink from '@/components/common/prismic-link'
+import { StackScrollCard } from '@/components/feature/StackScrollCard'
 
 /**
  * Props for `AdvisorSection`.
@@ -16,9 +17,13 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-12 text-white md:py-20"
+      className="relative py-12 text-white md:py-20"
     >
-      <div className="mx-auto max-w-[1440px] rounded-2xl bg-design-primary px-4 py-12 shadow-lg sm:px-6 md:rounded-3xl md:py-20 lg:px-12">
+      <StackScrollCard
+        index={0}
+        totalCards={1}
+        className="mx-auto max-w-[1440px] rounded-2xl bg-design-primary px-4 py-12 shadow-xl sm:px-6 md:rounded-3xl md:py-20 lg:px-12"
+      >
         <div className="text-center lg:text-left">
           <div className="mx-auto max-w-4xl lg:mx-0">
             <PrismicRichText
@@ -100,7 +105,7 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
             )}
           </div>
         </div>
-      </div>
+      </StackScrollCard>
     </section>
   )
 }

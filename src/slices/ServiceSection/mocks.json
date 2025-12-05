@@ -66,6 +66,16 @@
 						]
 					}
 				]
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "listen",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "tea",
+				"type": "Text"
 			}
 		},
 		"items": []

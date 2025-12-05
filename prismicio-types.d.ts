@@ -1407,6 +1407,26 @@ export interface ServiceSectionSliceDefaultPrimaryServicesItem {
  */
 export interface ServiceSectionSliceDefaultPrimary {
   /**
+   * title field in *ServiceSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * description field in *ServiceSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField
+
+  /**
    * Services field in *ServiceSection → Default → Primary*
    *
    * - **Field Type**: Group
