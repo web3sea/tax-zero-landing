@@ -9,6 +9,7 @@ import { Menu, ChevronDown, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion, AnimatePresence } from 'framer-motion'
 import WaitlistFormModal from '@/components/form/waitlist-form-modal'
+import Link from 'next/link'
 
 /**
  * Props for `Navbar`.
@@ -137,20 +138,22 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo Section */}
-          <div className="flex items-center">
-            <div className="flex items-center space-x-3">
-              {slice.primary.logo?.url ? (
-                <PrismicNextImage
-                  field={slice.primary.logo}
-                  width={41}
-                  height={28}
-                  className="h-7 w-auto"
-                />
-              ) : (
-                <div className="h-7 w-10 rounded-full bg-design-accent"></div>
-              )}
+          <Link href="/">
+            <div className="flex items-center">
+              <div className="flex items-center space-x-3">
+                {slice.primary.logo?.url ? (
+                  <PrismicNextImage
+                    field={slice.primary.logo}
+                    width={41}
+                    height={28}
+                    className="h-7 w-auto"
+                  />
+                ) : (
+                  <div className="h-7 w-10 rounded-full bg-design-accent"></div>
+                )}
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation + CTA Buttons (lg and above) */}
           <div className="hidden items-center space-x-8 lg:flex">
