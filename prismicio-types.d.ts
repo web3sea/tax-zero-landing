@@ -427,16 +427,6 @@ export interface AdvisorSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   badges: prismic.GroupField<Simplify<AdvisorSectionSliceDefaultPrimaryBadgesItem>>
-
-  /**
-   * Button field in *AdvisorSection → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: advisor_section.default.primary.button
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  button: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
 }
 
 /**
@@ -643,16 +633,6 @@ export interface FooterSliceDefaultPrimary {
   brand_name: prismic.KeyTextField
 
   /**
-   * Instagram Link field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.instagram_link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  instagram_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-
-  /**
    * Linkedin Link field in *Footer → Default → Primary*
    *
    * - **Field Type**: Link
@@ -661,16 +641,6 @@ export interface FooterSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   linkedin_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-
-  /**
-   * Twitter Link field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.twitter_link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  twitter_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
 
   /**
    * About field in *Footer → Default → Primary*
@@ -721,36 +691,6 @@ export interface FooterSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   terms_of_use: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-
-  /**
-   * Form ADV field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.form_adv
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  form_adv: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-
-  /**
-   * Legal field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.legal
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  legal: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-
-  /**
-   * Form CRS field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.form_crs
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  form_crs: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
 }
 
 /**

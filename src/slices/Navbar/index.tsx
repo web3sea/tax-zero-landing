@@ -290,7 +290,6 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
               <Menu className="h-6 w-6" />
             </Button>
           </div>
-
           {/* Mobile Navigation (below md) */}
           <div className="md:hidden">
             <Button
@@ -346,10 +345,6 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                   ) : (
                     <div className="h-7 w-10 rounded bg-design-accent"></div>
                   )}
-                  <h1 className="text-2xl font-bold text-design-primary">
-                    <span className="font-normal">Domain</span>
-                    <span className="ml-1 font-bold">Money</span>
-                  </h1>
                 </div>
                 <Button
                   variant="ghost"
@@ -406,7 +401,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
               </motion.div>
 
               {/* Mobile Navigation Links */}
-              <motion.nav
+              {/* <motion.nav
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.2 }}
@@ -473,7 +468,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                     )}
                   </motion.div>
                 ))}
-              </motion.nav>
+              </motion.nav> */}
             </motion.div>
           </>
         )}

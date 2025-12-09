@@ -31,33 +31,6 @@
 				"value": "moving",
 				"type": "Text"
 			},
-			"instagram_link": {
-				"key": "6227743a-dddd-4270-a40d-b1a482924a15",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev",
-					"text": "creature"
-				}
-			},
-			"linkedin_link": {
-				"key": "e9ada8d8-02ad-4cce-ab5c-3ed749ab8d3d",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io",
-					"text": "southern"
-				}
-			},
-			"twitter_link": {
-				"key": "26d4e903-00ab-415d-9729-80c551459e72",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://twitter.com",
-					"text": "black"
-				}
-			},
 			"about": {
 				"__TYPE__": "GroupContentType",
 				"value": [
@@ -112,31 +85,13 @@
 					"text": "fellow"
 				}
 			},
-			"form_adv": {
-				"key": "dcb6316d-bb30-4725-885d-07f78b2a624f",
+			"linkedin_link": {
+				"key": "31ba7406-5be9-4366-aaac-8969e75657f6",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "http://twitter.com",
-					"text": "official"
-				}
-			},
-			"legal": {
-				"key": "a98b61fa-bc03-4e85-90ac-5fc84b7d6f0f",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://twitter.com",
-					"text": "environment"
-				}
-			},
-			"form_crs": {
-				"key": "b9bebbfd-fcc5-48b8-b6c2-d57715edffb8",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev",
-					"text": "ride"
+					"url": "http://google.com",
+					"text": "present"
 				}
 			}
 		},

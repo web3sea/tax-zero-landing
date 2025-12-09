@@ -47,7 +47,7 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
                 ),
               }}
             />
-
+{/* 
             <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row md:mb-8 lg:justify-start">
               {slice.primary.button && (
                 <PrismicLink
@@ -88,7 +88,7 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
                   </svg>
                 </PrismicLink>
               )}
-            </div>
+            </div> */}
 
             {/* Badges */}
             {Array.isArray(slice.primary.badges) && slice.primary.badges.length > 0 && (

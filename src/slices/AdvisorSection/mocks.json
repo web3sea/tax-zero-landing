@@ -42,15 +42,6 @@
 						]
 					}
 				]
-			},
-			"button": {
-				"key": "54763c4c-5234-451f-b71c-b80afa641d2c",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev",
-					"text": "distance"
-				}
 			}
 		},
 		"items": []

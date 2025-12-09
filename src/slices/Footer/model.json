@@ -27,32 +27,10 @@
             "placeholder": ""
           }
         },
-        "instagram_link": {
-          "type": "Link",
-          "config": {
-            "label": "Instagram Link",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
-          }
-        },
         "linkedin_link": {
           "type": "Link",
           "config": {
             "label": "Linkedin Link",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
-          }
-        },
-        "twitter_link": {
-          "type": "Link",
-          "config": {
-            "label": "Twitter Link",
             "placeholder": "",
             "select": null,
             "allowTargetBlank": true,
@@ -113,39 +91,6 @@
           "type": "Link",
           "config": {
             "label": "Terms of Use",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
-          }
-        },
-        "form_adv": {
-          "type": "Link",
-          "config": {
-            "label": "Form ADV",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
-          }
-        },
-        "legal": {
-          "type": "Link",
-          "config": {
-            "label": "Legal",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
-          }
-        },
-        "form_crs": {
-          "type": "Link",
-          "config": {
-            "label": "Form CRS",
             "placeholder": "",
             "select": null,
             "allowTargetBlank": true,
