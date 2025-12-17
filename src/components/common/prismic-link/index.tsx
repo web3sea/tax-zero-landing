@@ -39,15 +39,30 @@ export default function PrismicLink({
       console.log('🔗 Document link (Landing):', { type: field.type, href })
     }
 
+    // Case 4: Blog list = blog
+    else if ('slug' in field && field.slug === 'blog-listing') {
+      href = `/blog`
+
+      console.log('⚠️ Document link (Fallback):', { type: field.type, href })
+    }
+
     // Case 2: Single type - only has slug, no UID (e.g., privacy_policy, terms_of_use)
     else if ('slug' in field && field.slug) {
       href = `/${field.slug}`
       console.log('🔗 Document link (Single):', { type: field.type, slug: field.slug, href })
     }
 
+    // Case 4: Blog list = blog
+    else if (field.type == 'blog_listing') {
+      href = `/blog`
+
+      console.log('⚠️ Document link (Fallback):', { type: field.type, href })
+    }
+
     // Fallback: use type if available
     else if (field.type) {
       href = `/${field.type}`
+
       console.log('⚠️ Document link (Fallback):', { type: field.type, href })
     }
 

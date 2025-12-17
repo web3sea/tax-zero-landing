@@ -57,14 +57,78 @@ type ContentRelationshipFieldWithData<
   >
 }[Exclude<TCustomType[number], string>['id']]
 
+type BlogListingDocumentDataSlicesSlice = BlogHomeSlice
+
+/**
+ * Content for Blog Listing documents
+ */
+interface BlogListingDocumentData {
+  /**
+   * Slice Zone field in *Blog Listing*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_listing.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<BlogListingDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_listing.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Blog Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_listing.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Blog Listing*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_listing.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Blog Listing document from Prismic
+ *
+ * - **API ID**: `blog_listing`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogListingDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<BlogListingDocumentData>,
+  'blog_listing',
+  Lang
+>
+
 type BlogPageDocumentDataSlicesSlice = BioSlice | MarkdownContentSlice
 
 /**
- * Content for Blog Page documents
+ * Content for Dynamic Page documents
  */
 interface BlogPageDocumentData {
   /**
-   * Slice Zone field in *Blog Page*
+   * Slice Zone field in *Dynamic Page*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -73,7 +137,7 @@ interface BlogPageDocumentData {
    * - **Documentation**: https://prismic.io/docs/slices
    */
   slices: prismic.SliceZone<BlogPageDocumentDataSlicesSlice> /**
-   * Meta Title field in *Blog Page*
+   * Meta Title field in *Dynamic Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -84,7 +148,7 @@ interface BlogPageDocumentData {
   meta_title: prismic.KeyTextField
 
   /**
-   * Meta Description field in *Blog Page*
+   * Meta Description field in *Dynamic Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -95,7 +159,7 @@ interface BlogPageDocumentData {
   meta_description: prismic.KeyTextField
 
   /**
-   * Meta Image field in *Blog Page*
+   * Meta Image field in *Dynamic Page*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -107,7 +171,7 @@ interface BlogPageDocumentData {
 }
 
 /**
- * Blog Page document from Prismic
+ * Dynamic Page document from Prismic
  *
  * - **API ID**: `blog_page`
  * - **Repeatable**: `true`
@@ -118,6 +182,70 @@ interface BlogPageDocumentData {
 export type BlogPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
   Simplify<BlogPageDocumentData>,
   'blog_page',
+  Lang
+>
+
+type BlogPageNewDocumentDataSlicesSlice = MarkdownContentSlice
+
+/**
+ * Content for Blog Page New documents
+ */
+interface BlogPageNewDocumentData {
+  /**
+   * Slice Zone field in *Blog Page New*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_page_new.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<BlogPageNewDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog Page New*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_page_new.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Blog Page New*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_page_new.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Blog Page New*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_page_new.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Blog Page New document from Prismic
+ *
+ * - **API ID**: `blog_page_new`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogPageNewDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+  Simplify<BlogPageNewDocumentData>,
+  'blog_page_new',
   Lang
 >
 
@@ -489,7 +617,9 @@ export type TermOfServicesDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<TermOfServicesDocumentData>, 'term_of_services', Lang>
 
 export type AllDocumentTypes =
+  | BlogListingDocument
   | BlogPageDocument
+  | BlogPageNewDocument
   | FooterDocument
   | HeaderDocument
   | LandingDocument
@@ -647,6 +777,58 @@ type BioSliceVariation = BioSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type BioSlice = prismic.SharedSlice<'bio', BioSliceVariation>
+
+/**
+ * Primary content in *BlogHome → Default → Primary*
+ */
+export interface BlogHomeSliceDefaultPrimary {
+  /**
+   * title field in *BlogHome → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_home.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * description field in *BlogHome → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_home.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField
+}
+
+/**
+ * Default variation for BlogHome Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BlogHomeSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<BlogHomeSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *BlogHome*
+ */
+type BlogHomeSliceVariation = BlogHomeSliceDefault
+
+/**
+ * BlogHome Shared Slice
+ *
+ * - **API ID**: `blog_home`
+ * - **Description**: BlogHome
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BlogHomeSlice = prismic.SharedSlice<'blog_home', BlogHomeSliceVariation>
 
 /**
  * Item in *FaqSection → Default → Primary → Question and Answers*
@@ -1761,9 +1943,15 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
+      BlogListingDocument,
+      BlogListingDocumentData,
+      BlogListingDocumentDataSlicesSlice,
       BlogPageDocument,
       BlogPageDocumentData,
       BlogPageDocumentDataSlicesSlice,
+      BlogPageNewDocument,
+      BlogPageNewDocumentData,
+      BlogPageNewDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataSlicesSlice,
@@ -1789,6 +1977,10 @@ declare module '@prismicio/client' {
       BioSliceDefaultPrimary,
       BioSliceVariation,
       BioSliceDefault,
+      BlogHomeSlice,
+      BlogHomeSliceDefaultPrimary,
+      BlogHomeSliceVariation,
+      BlogHomeSliceDefault,
       FaqSectionSlice,
       FaqSectionSliceDefaultPrimaryQuestionAndAnswersItem,
       FaqSectionSliceDefaultPrimary,
