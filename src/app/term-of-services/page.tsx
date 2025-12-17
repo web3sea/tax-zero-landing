@@ -2,20 +2,24 @@ import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { asImageSrc } from '@prismicio/client'
 import { SliceZone } from '@prismicio/react'
-
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
+import MainLayout from '@/layout/MainLayout'
 
 export default async function Page() {
   const client = createClient()
   const page = await client.getSingle('term_of_services').catch(() => notFound())
 
-  return <SliceZone slices={page.data.slices} components={components} />
+  return (
+    <MainLayout>
+      <SliceZone slices={page.data.slices} components={components} />
+    </MainLayout>
+  )
 }
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient()
-    const page = await client.getSingle('term_of_services').catch(() => notFound())
+  const page = await client.getSingle('term_of_services').catch(() => notFound())
 
   return {
     title: page.data.meta_title,

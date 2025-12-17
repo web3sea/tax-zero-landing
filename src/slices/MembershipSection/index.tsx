@@ -31,11 +31,11 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
       data-slice-variation={slice.variation}
       className="py-20"
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-6">
         {/* Heading + Description */}
         <FadeInView className="mb-16 text-center">
           {typeof slice.primary.title === 'string' ? (
-            <h1 className="mb-6 font-serif text-5xl font-light leading-tight tracking-tight text-design-primary lg:text-6xl">
+            <h1 className="mb-6 font-serif text-5xl font-light leading-tight tracking-tight text-foreground lg:text-6xl">
               {slice.primary.title}
             </h1>
           ) : null}
@@ -43,9 +43,7 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
             field={slice.primary.description}
             components={{
               paragraph: ({ children }) => (
-                <p className="mx-auto max-w-6xl font-proxima text-xl text-design-primary">
-                  {children}
-                </p>
+                <p className="font-sans text-xl text-foreground">{children}</p>
               ),
             }}
           />
@@ -54,7 +52,7 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
         {/* Benefits grid */}
         <div className="mb-12 grid gap-8 md:grid-cols-3">
           {slice.primary.cards?.map((item, index) => (
-            <AnimatedCard key={index} index={index} className="rounded-xl bg-design-card-bg p-8">
+            <AnimatedCard key={index} index={index} className="rounded-xl bg-card p-8">
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg">
                 {item.image?.url ? (
                   <PrismicNextImage
@@ -64,19 +62,19 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
                     className="h-11 w-11"
                   />
                 ) : (
-                  <div className="h-12 w-12 rounded-lg bg-gray-200" />
+                  <div className="h-12 w-12 rounded-lg bg-muted" />
                 )}
               </div>
               <PrismicRichText
                 field={item.title}
                 components={{
                   heading3: ({ children }) => (
-                    <h3 className="mb-4 font-proxima text-2xl font-bold text-design-primary">
+                    <h3 className="mb-4 font-sans text-2xl font-bold text-foreground">
                       {children}
                     </h3>
                   ),
                   paragraph: ({ children }) => (
-                    <h3 className="mb-4 font-proxima text-2xl font-bold text-design-primary">
+                    <h3 className="mb-4 font-sans text-2xl font-bold text-foreground">
                       {children}
                     </h3>
                   ),
@@ -86,7 +84,7 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
                 field={item.description}
                 components={{
                   paragraph: ({ children }) => (
-                    <p className="font-proxima text-gray-600">{children}</p>
+                    <p className="font-sans text-muted-foreground">{children}</p>
                   ),
                 }}
               />
@@ -100,10 +98,10 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
             <div className="text-center">
               <PrismicLink
                 field={slice.primary.button}
-                className="mx-auto inline-flex items-center rounded-full bg-design-accent px-2 py-2 font-proxima text-lg text-white shadow-md transition-colors duration-200 hover:bg-design-accent-light"
+                className="mx-auto inline-flex items-center rounded-full bg-primary px-2 py-2 font-sans text-lg text-primary-foreground shadow-md transition-colors duration-200 hover:bg-accent"
                 fallbackText={slice.primary.button.text}
               >
-                <span className="ml-4 mr-4 font-proxima text-xl">{slice.primary.button.text}</span>
+                <span className="ml-4 mr-4 font-sans text-xl">{slice.primary.button.text}</span>
                 <Image
                   src="/svg/icons/arrow-right.svg"
                   alt="Arrow"
@@ -118,10 +116,10 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
           {isWaitlistMode ? (
             <div className="text-center">
               <button
-                className="mx-auto inline-flex items-center rounded-full bg-design-accent px-2 py-2 font-proxima text-lg text-white shadow-md transition-colors duration-200 hover:bg-design-accent-light"
+                className="mx-auto inline-flex items-center rounded-full bg-primary px-2 py-2 font-sans text-lg text-primary-foreground shadow-md transition-colors duration-200 hover:bg-accent"
                 onClick={() => setIsWaitlistOpen(true)}
               >
-                <span className="ml-4 mr-4 font-proxima text-xl">{slice.primary.button.text}</span>
+                <span className="ml-4 mr-4 font-sans text-xl">{slice.primary.button.text}</span>
                 <Image
                   src="/svg/icons/arrow-right.svg"
                   alt="Arrow"
@@ -140,7 +138,7 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
                 field={slice.primary.citation_text}
                 components={{
                   paragraph: ({ children }) => (
-                    <p className="font-proxima text-xs text-black">{children}</p>
+                    <p className="font-sans text-xs text-foreground">{children}</p>
                   ),
                 }}
               />

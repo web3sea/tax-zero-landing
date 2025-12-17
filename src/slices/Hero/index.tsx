@@ -108,21 +108,21 @@ const Hero: FC<HeroProps> = ({ slice, context }) => {
           )}
         </div>
       ) : (
-        <div className="absolute inset-0 h-full w-full bg-gray-900" />
+        <div className="absolute inset-0 h-full w-full bg-brand-navy" />
       )}
 
       {/* Content Container */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-auto flex-col items-start justify-between py-20 lg:flex-row">
+      <div className="container relative z-10 mx-auto px-6">
+        <div className="flex h-auto flex-col items-start justify-between py-24 lg:flex-row lg:py-32">
           {/* Left Content */}
-          <div className="flex-1 lg:max-w-xl lg:px-8">
+          <div className="flex-1 lg:max-w-2xl">
             {/* Title with animation */}
             <FadeInView delay={0.2} duration={0.8} y={30}>
               <PrismicRichText
                 field={slice.primary.title}
                 components={{
                   heading1: ({ children }) => (
-                    <h1 className="mb-6 font-serif text-5xl font-light leading-tight text-white lg:text-7xl">
+                    <h1 className="mb-6 font-serif text-5xl font-bold leading-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
                       {children}
                     </h1>
                   ),
@@ -136,9 +136,9 @@ const Hero: FC<HeroProps> = ({ slice, context }) => {
                 field={slice.primary.description}
                 components={{
                   paragraph: ({ children }) => (
-                    <h2 className="mb-8 font-proxima text-xl font-light leading-relaxed text-white/90 lg:text-2xl">
+                    <p className="mb-8 font-sans text-lg leading-relaxed text-white/90 drop-shadow-md sm:text-xl lg:text-2xl">
                       {children}
-                    </h2>
+                    </p>
                   ),
                 }}
               />
@@ -149,20 +149,20 @@ const Hero: FC<HeroProps> = ({ slice, context }) => {
               {!isWaitlistMode ? (
                 <PrismicLink
                   field={slice.primary.button}
-                  className="group inline-flex items-center rounded-full bg-white py-2 pl-8 pr-2 transition-colors hover:bg-gray-100"
+                  className="group inline-flex items-center rounded-full bg-white py-3 pl-8 pr-2 shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
                   fallbackText="Free Strategy Session"
                 >
-                  <span className="mr-8 font-proxima text-xl">
+                  <span className="mr-6 font-sans text-lg font-medium text-foreground">
                     {slice.primary.button.text ?? 'Free Strategy Session'}
                   </span>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-design-accent transition-colors group-hover:bg-design-accent-dark">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary transition-all group-hover:bg-accent">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      className="text-white"
+                      className="text-primary-foreground"
                     >
                       <path
                         d="M9 5l7 7-7 7"
@@ -176,20 +176,20 @@ const Hero: FC<HeroProps> = ({ slice, context }) => {
                 </PrismicLink>
               ) : (
                 <button
-                  className="group inline-flex items-center rounded-full bg-white py-2 pl-8 pr-2 transition-colors hover:bg-gray-100"
+                  className="group inline-flex items-center rounded-full bg-white py-3 pl-8 pr-2 shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
                   onClick={() => setIsWaitlistOpen(true)}
                 >
-                  <span className="mr-8 font-proxima text-xl">
+                  <span className="mr-6 font-sans text-lg font-medium text-foreground">
                     {slice.primary.button.text ?? 'Free Strategy Session'}
                   </span>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-design-accent transition-colors group-hover:bg-design-accent-dark">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary transition-all group-hover:bg-accent">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      className="text-white"
+                      className="text-primary-foreground"
                     >
                       <path
                         d="M9 5l7 7-7 7"
@@ -235,7 +235,7 @@ const CarouselFadeTransition: FC<CarouselModeProps> = ({
           )}
         >
           <PrismicImage field={item.image} className="h-full w-full object-cover" alt="" />
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
       ))}
       {/* Hidden carousel for API control */}
@@ -269,7 +269,7 @@ const CarouselSlideTransition: FC<CarouselModeProps> = ({ carouselImages, setApi
           <CarouselItem key={index} className="h-full basis-full pl-0">
             <div className="relative h-full w-full">
               <PrismicImage field={item.image} className="h-full w-full object-cover" alt="" />
-              <div className="absolute inset-0 bg-black/30" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
             </div>
           </CarouselItem>
         ))}
@@ -293,7 +293,7 @@ const CarouselZoomFade: FC<CarouselModeProps> = ({ carouselImages, setApi, curre
             )}
           >
             <PrismicImage field={item.image} className="h-full w-full object-cover" alt="" />
-            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
           </div>
         )
       })}
@@ -334,7 +334,7 @@ const CarouselParallaxEffect: FC<CarouselModeProps> = ({
             }}
           >
             <PrismicImage field={item.image} className="h-full w-full object-cover" alt="" />
-            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
           </div>
         )
       })}
@@ -378,7 +378,7 @@ const CarouselKenBurnsEffect: FC<CarouselModeProps> = ({
             >
               <PrismicImage field={item.image} className="h-full w-full object-cover" alt="" />
             </div>
-            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
           </div>
         )
       })}

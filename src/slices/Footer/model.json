@@ -58,24 +58,6 @@
             }
           }
         },
-        "all_rights_reserved": {
-          "type": "Text",
-          "config": {
-            "label": "All Rights Reserved",
-            "placeholder": ""
-          }
-        },
-        "log_in": {
-          "type": "Link",
-          "config": {
-            "label": "Log In",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
-          }
-        },
         "privacy_policy": {
           "type": "Link",
           "config": {
@@ -96,6 +78,13 @@
             "allowTargetBlank": true,
             "allowText": true,
             "repeat": false
+          }
+        },
+        "all_rights_reserved": {
+          "type": "Text",
+          "config": {
+            "label": "All Rights Reserved ",
+            "placeholder": ""
           }
         }
       },

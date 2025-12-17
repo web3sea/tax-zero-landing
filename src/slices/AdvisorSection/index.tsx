@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import PrismicLink from '@/components/common/prismic-link'
 import { StackScrollCard } from '@/components/feature/StackScrollCard'
 
 /**
@@ -17,15 +16,15 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative py-12 text-white md:py-20"
+      className="relative py-12 text-primary-foreground md:py-20"
     >
-      <StackScrollCard
-        index={0}
-        totalCards={1}
-        className="mx-auto max-w-[1440px] rounded-2xl bg-design-primary px-4 py-12 shadow-xl sm:px-6 md:rounded-3xl md:py-20 lg:px-12"
-      >
-        <div className="text-center lg:text-left">
-          <div className="mx-auto max-w-4xl lg:mx-0">
+      <div className="container mx-auto px-6">
+        <StackScrollCard
+          index={0}
+          totalCards={1}
+          className="rounded-2xl bg-brand-navy px-6 py-12 shadow-xl md:rounded-3xl md:py-20 lg:px-12"
+        >
+          <div className="text-center lg:text-left">
             <PrismicRichText
               field={slice.primary.title}
               components={{
@@ -41,54 +40,12 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
               field={slice.primary.description}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="mx-auto mb-6 max-w-3xl font-proxima text-lg leading-relaxed text-design-card-bg md:mb-8 md:text-xl lg:mx-0">
+                  <p className="mb-6 font-sans text-lg leading-relaxed text-primary-foreground/90 md:mb-8 md:text-xl">
                     {children}
                   </p>
                 ),
               }}
             />
-{/* 
-            <div className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row md:mb-8 lg:justify-start">
-              {slice.primary.button && (
-                <PrismicLink
-                  field={slice.primary.button}
-                  className="flex w-auto min-w-[280px] items-center justify-center rounded-[45px] bg-white px-5 py-[0.3rem] pr-2 font-proxima text-[1.125rem] leading-[1.5] text-design-primary transition-colors hover:bg-gray-100"
-                  fallbackText={slice.primary.button.text}
-                >
-                  <span className="mr-4">{slice.primary.button.text}</span>
-                  <svg
-                    width="32"
-                    height="32"
-                    className="md:h-9 md:w-9"
-                    viewBox="0 0 36 36"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <ellipse
-                      cx="18.0058"
-                      cy="17.9619"
-                      rx="17.8389"
-                      ry="17.7764"
-                      fill="#3F50EC"
-                    ></ellipse>
-                    <path
-                      d="M18.4882 23.7305L24.2772 17.9617L18.4882 12.1929"
-                      stroke="#fff"
-                      strokeWidth="1.61"
-                      strokeMiterlimit="10"
-                      strokeLinecap="square"
-                    ></path>
-                    <path
-                      d="M23.4728 17.9609L11.7339 17.9609"
-                      stroke="#fff"
-                      strokeWidth="1.61"
-                      strokeMiterlimit="10"
-                      strokeLinecap="square"
-                    ></path>
-                  </svg>
-                </PrismicLink>
-              )}
-            </div> */}
 
             {/* Badges */}
             {Array.isArray(slice.primary.badges) && slice.primary.badges.length > 0 && (
@@ -96,7 +53,7 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
                 {slice.primary.badges.map((badge, index) => (
                   <div
                     key={index}
-                    className="rounded-full bg-white/10 px-3 py-2 text-center font-proxima text-xs font-medium backdrop-blur-sm md:px-4 md:text-sm"
+                    className="rounded-full bg-primary-foreground/10 px-3 py-2 text-center font-sans text-xs font-medium backdrop-blur-sm md:px-4 md:text-sm"
                   >
                     {badge.title}
                   </div>
@@ -104,8 +61,8 @@ const AdvisorSection: FC<AdvisorSectionProps> = ({ slice }) => {
               </div>
             )}
           </div>
-        </div>
-      </StackScrollCard>
+        </StackScrollCard>
+      </div>
     </section>
   )
 }

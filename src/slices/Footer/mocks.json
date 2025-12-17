@@ -53,20 +53,6 @@
 					}
 				]
 			},
-			"all_rights_reserved": {
-				"__TYPE__": "FieldContent",
-				"value": "of",
-				"type": "Text"
-			},
-			"log_in": {
-				"key": "de788f1b-4091-427f-b14f-ceff0c323f0c",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://google.com",
-					"text": "crack"
-				}
-			},
 			"privacy_policy": {
 				"key": "ee2dc566-8cb4-4d0a-bcb7-8108c9e74598",
 				"__TYPE__": "LinkContent",
@@ -93,6 +79,11 @@
 					"url": "http://google.com",
 					"text": "present"
 				}
+			},
+			"all_rights_reserved": {
+				"__TYPE__": "FieldContent",
+				"value": "bent",
+				"type": "Text"
 			}
 		},
 		"items": []

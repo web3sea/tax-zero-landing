@@ -24,11 +24,11 @@ const FeaturedSection: FC<FeaturedSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="overflow-hidden bg-design-card-bg py-16"
+      className="overflow-hidden bg-secondary py-16"
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-6">
         <div className="mb-12 text-center">
-          <h3 className="mb-8 text-2xl text-black">
+          <h3 className="mb-8 font-serif text-2xl text-foreground">
             {slice.primary.title || 'Featured in'}
           </h3>
         </div>

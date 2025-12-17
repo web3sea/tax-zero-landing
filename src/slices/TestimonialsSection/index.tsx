@@ -59,30 +59,33 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
     setIsDragging(true)
     setDragStart({
       x: e.clientX,
-      scrollLeft: scrollContainerRef.current?.scrollLeft || 0
+      scrollLeft: scrollContainerRef.current?.scrollLeft || 0,
     })
   }
 
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (!isDragging || !scrollContainerRef.current || !scrollbarRef.current) return
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (!isDragging || !scrollContainerRef.current || !scrollbarRef.current) return
 
-    const deltaX = e.clientX - dragStart.x
-    const container = scrollContainerRef.current
-    const scrollbar = scrollbarRef.current
+      const deltaX = e.clientX - dragStart.x
+      const container = scrollContainerRef.current
+      const scrollbar = scrollbarRef.current
 
-    const scrollWidth = container.scrollWidth
-    const clientWidth = container.clientWidth
-    const maxScroll = scrollWidth - clientWidth
-    const scrollbarWidth = scrollbar.clientWidth
-    const thumbWidth = scrollbarThumbRef.current?.clientWidth || 0
-    const scrollableWidth = scrollbarWidth - thumbWidth
+      const scrollWidth = container.scrollWidth
+      const clientWidth = container.clientWidth
+      const maxScroll = scrollWidth - clientWidth
+      const scrollbarWidth = scrollbar.clientWidth
+      const thumbWidth = scrollbarThumbRef.current?.clientWidth || 0
+      const scrollableWidth = scrollbarWidth - thumbWidth
 
-    if (scrollableWidth > 0) {
-      const scrollDelta = (deltaX / scrollableWidth) * maxScroll
-      const newScrollLeft = Math.max(0, Math.min(maxScroll, dragStart.scrollLeft + scrollDelta))
-      container.scrollLeft = newScrollLeft
-    }
-  }, [isDragging, dragStart])
+      if (scrollableWidth > 0) {
+        const scrollDelta = (deltaX / scrollableWidth) * maxScroll
+        const newScrollLeft = Math.max(0, Math.min(maxScroll, dragStart.scrollLeft + scrollDelta))
+        container.scrollLeft = newScrollLeft
+      }
+    },
+    [isDragging, dragStart],
+  )
 
   const handleMouseUp = () => {
     setIsDragging(false)
@@ -120,45 +123,44 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
     }
   }, [updateScrollbarThumb])
 
-
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="pt-6 md:pt-8 pb-8 md:pb-10 bg-[#98d3f3]"
+      className="bg-brand-blue-light pb-8 pt-6 md:pb-10 md:pt-8"
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-design-primary mb-4 tracking-tight">
+        <div className="mb-12 text-center md:mb-16">
+          <h2 className="mb-4 font-serif text-3xl font-light leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
             {typeof slice.primary.title === 'string' ? slice.primary.title : 'Delighted Clients'}
           </h2>
-          <div className="flex flex-col sm:flex-row items-center justify-center mb-6 md:mb-8 gap-2 sm:gap-0">
-            <span className="text-xl md:text-2xl underline mr-0 sm:mr-4">
+          <div className="mb-6 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-0 md:mb-8">
+            <span className="mr-0 font-sans text-xl underline sm:mr-4 md:text-2xl">
               {'Excellent'}
             </span>
             <div className="mr-0 sm:mr-4">
               <StarReview starNumber={slice.primary.star_number} />
             </div>
-            <span className="text-base md:text-lg text-gray-600 font-proxima">
+            <span className="font-sans text-base text-muted-foreground md:text-lg">
               {'Trustpilot'}
             </span>
           </div>
         </div>
 
         {/* Full Width Scrollable Testimonials */}
-        <div className="w-full mb-8 md:mb-10">
+        <div className="mb-8 w-full md:mb-10">
           {/* Testimonials Container */}
           <div
             ref={scrollContainerRef}
-            className="overflow-x-auto scrollbar-hide"
+            className="scrollbar-hide overflow-x-auto"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            <div className="flex space-x-4 md:space-x-6 min-w-max px-2 md:px-4">
+            <div className="flex min-w-max space-x-4 px-2 md:space-x-6 md:px-4">
               {slice.primary.cards?.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-6 md:p-8 shadow-lg min-w-[320px] md:min-w-[400px] max-w-[400px] flex flex-col"
+                  className="flex min-w-[320px] max-w-[400px] flex-col rounded-2xl bg-card p-6 shadow-lg md:min-w-[400px] md:p-8"
                 >
                   {/* Stars */}
                   <div className="mb-4">
@@ -170,7 +172,7 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
                     field={testimonial.review_content}
                     components={{
                       paragraph: ({ children }) => (
-                        <p className="text-gray-700 font-proxima text-sm md:text-base leading-relaxed mb-6 flex-grow">
+                        <p className="mb-6 flex-grow font-sans text-sm leading-relaxed text-card-foreground md:text-base">
                           {children}
                         </p>
                       ),
@@ -178,19 +180,19 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
                   />
 
                   {/* Author */}
-                  <div className="flex items-center mt-auto">
+                  <div className="mt-auto flex items-center">
                     {testimonial.avatar?.url ? (
                       <PrismicNextImage
                         field={testimonial.avatar}
-                        className="w-10 h-10 rounded-full mr-3 flex-shrink-0"
+                        className="mr-3 h-10 w-10 flex-shrink-0 rounded-full"
                         width={40}
                         height={40}
                       />
                     ) : (
-                      <div className="w-10 h-10 rounded-full bg-gray-300 mr-3 flex-shrink-0" />
+                      <div className="mr-3 h-10 w-10 flex-shrink-0 rounded-full bg-muted" />
                     )}
                     <div>
-                      <p className="font-proxima font-semibold text-design-primary text-sm md:text-base">
+                      <p className="font-sans text-sm font-semibold text-foreground md:text-base">
                         {testimonial.username || 'Anonymous'}
                       </p>
                     </div>
@@ -203,7 +205,7 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
           {/* Custom Scrollbar */}
           <div
             ref={scrollbarRef}
-            className="max-w-7xl mx-auto mt-3 md:mt-4 h-1 md:h-1.5 bg-gray-200 rounded-full relative cursor-pointer"
+            className="relative mx-auto mt-3 h-1 cursor-pointer rounded-full bg-muted md:mt-4 md:h-1.5"
             onClick={(e) => {
               if (!scrollContainerRef.current || !scrollbarRef.current) return
 
@@ -222,7 +224,7 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
           >
             <div
               ref={scrollbarThumbRef}
-              className="absolute top-0 left-0 h-full bg-design-accent rounded-full cursor-pointer hover:bg-design-accent-dark transition-colors"
+              className="absolute left-0 top-0 h-full cursor-pointer rounded-full bg-primary transition-colors hover:bg-accent"
               onMouseDown={handleThumbMouseDown}
             />
           </div>
@@ -233,7 +235,7 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
           <div className="text-center">
             <PrismicLink
               field={slice.primary.see_more_button}
-              className="font-proxima border-2 border-design-primary text-design-primary rounded-full font-normal bg-white hover:bg-design-card-bg transition-colors text-base md:text-lg shadow-none"
+              className="rounded-full border-2 border-foreground bg-background font-sans text-base font-normal text-foreground shadow-none transition-colors hover:bg-secondary md:text-lg"
               fallbackText="See more testimonials"
             >
               {'See more testimonials'}
@@ -243,12 +245,12 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ slice }) => {
 
         {/* Citation */}
         {slice.primary.citation_text && (
-          <div className="mt-6 md:mt-8 text-center px-4">
+          <div className="mt-6 px-4 text-center md:mt-8">
             <PrismicRichText
               field={slice.primary.citation_text}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="font-proxima text-xs md:text-sm text-black text-center max-w-5xl mx-auto leading-snug">
+                  <p className="text-center font-sans text-xs leading-snug text-foreground md:text-sm">
                     {children}
                   </p>
                 ),

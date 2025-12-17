@@ -31,61 +31,6 @@
             "repeat": true
           }
         },
-        "membership": {
-          "type": "Link",
-          "config": {
-            "label": "Membership",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": true
-          }
-        },
-        "pricing": {
-          "type": "Link",
-          "config": {
-            "label": "Pricing",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
-          }
-        },
-        "services": {
-          "type": "Link",
-          "config": {
-            "label": "Services",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": true
-          }
-        },
-        "learn": {
-          "type": "Link",
-          "config": {
-            "label": "Learn",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": true
-          }
-        },
-        "resources": {
-          "type": "Link",
-          "config": {
-            "label": "Resources",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": true
-          }
-        },
         "login": {
           "type": "Link",
           "config": {

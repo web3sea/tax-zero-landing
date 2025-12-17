@@ -38,9 +38,9 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
     setActiveDropdown(null)
   }
 
-  const toggleMobileItem = (label: string) => {
-    setExpandedMobileItem(expandedMobileItem === label ? null : label)
-  }
+  // const toggleMobileItem = (label: string) => {
+  //   setExpandedMobileItem(expandedMobileItem === label ? null : label)
+  // }
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -70,70 +70,13 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
           }))
         : [],
     },
-    // {
-    //   label: 'Membership',
-    //   link: Array.isArray(slice.primary.membership)
-    //     ? slice.primary.membership[0]
-    //     : slice.primary.membership || { url: '#membership' },
-    //   hasDropdown: Array.isArray(slice.primary.membership) && slice.primary.membership.length > 0,
-    //   children: Array.isArray(slice.primary.membership)
-    //     ? slice.primary.membership.map((item) => ({
-    //         label: item.text || 'Link',
-    //         link: item,
-    //       }))
-    //     : [],
-    // },
-    // {
-    //   label: 'Pricing',
-    //   link: slice.primary.pricing || { url: '#pricing' },
-    //   hasDropdown: false,
-    // },
-    // {
-    //   label: 'Services',
-    //   link: Array.isArray(slice.primary.services)
-    //     ? slice.primary.services[0]
-    //     : slice.primary.services || { url: '#services' },
-    //   hasDropdown: Array.isArray(slice.primary.services) && slice.primary.services.length > 0,
-    //   children: Array.isArray(slice.primary.services)
-    //     ? slice.primary.services.map((item) => ({
-    //         label: item.text || 'Link',
-    //         link: item,
-    //       }))
-    //     : [],
-    // },
-    // {
-    //   label: 'Learn',
-    //   link: Array.isArray(slice.primary.learn)
-    //     ? slice.primary.learn[0]
-    //     : slice.primary.learn || { url: '#learn' },
-    //   hasDropdown: Array.isArray(slice.primary.learn) && slice.primary.learn.length > 0,
-    //   children: Array.isArray(slice.primary.learn)
-    //     ? slice.primary.learn.map((item) => ({
-    //         label: item.text || 'Link',
-    //         link: item,
-    //       }))
-    //     : [],
-    // },
-    // {
-    //   label: 'Resources',
-    //   link: Array.isArray(slice.primary.resources)
-    //     ? slice.primary.resources[0]
-    //     : slice.primary.resources || { url: '#resources' },
-    //   hasDropdown: Array.isArray(slice.primary.resources) && slice.primary.resources.length > 0,
-    //   children: Array.isArray(slice.primary.resources)
-    //     ? slice.primary.resources.map((item) => ({
-    //         label: item.text || 'Link',
-    //         link: item,
-    //       }))
-    //     : [],
-    // },
   ]
 
   return (
     <header
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="sticky top-0 z-50 bg-white font-proxima shadow-sm"
+      className="sticky top-0 z-50 bg-background font-sans shadow-sm"
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -149,7 +92,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                     className="h-7 w-auto"
                   />
                 ) : (
-                  <div className="h-7 w-10 rounded-full bg-design-accent"></div>
+                  <div className="h-7 w-10 rounded-full bg-primary"></div>
                 )}
               </div>
             </div>
@@ -168,7 +111,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                 >
                   {item.hasDropdown ? (
                     <div className="relative">
-                      <button className="flex items-center space-x-1 text-design-primary transition-colors duration-200 hover:text-design-primary-light">
+                      <button className="flex items-center space-x-1 text-foreground transition-colors duration-200 hover:text-primary">
                         <span>{item.label}</span>
                         <motion.div
                           animate={{
@@ -193,13 +136,14 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                               duration: 0.2,
                               ease: 'easeOut',
                             }}
-                            className="absolute right-0 top-full z-50 mt-2 w-48 rounded-lg border border-gray-200 bg-white shadow-lg"
+                            className="absolute right-0 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card shadow-lg"
                           >
-                            {item.children?.map((child, index) => (
+                            {item.children?.map((child, index) =>
+                            (
                               <PrismicLink
                                 key={index}
                                 field={child.link}
-                                className="block px-4 py-3 text-sm text-design-primary transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg hover:bg-design-card-bg"
+                                className="block px-4 py-3 text-sm text-foreground transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg hover:bg-secondary"
                                 fallbackText={child.label}
                               >
                                 {child.label}
@@ -212,7 +156,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                   ) : (
                     <PrismicLink
                       field={item.link}
-                      className="text-design-primary transition-colors duration-200 hover:text-design-primary-light"
+                      className="text-foreground transition-colors duration-200 hover:text-primary"
                       fallbackText={item.label}
                     >
                       {item.label}
@@ -237,7 +181,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
               {!isWaitlistMode && slice.primary.free_strategy_session ? (
                 <Button
                   asChild
-                  className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
+                  className="bg-primary text-primary-foreground transition-colors duration-200 hover:bg-accent"
                   style={{ padding: '.5rem 2rem' }}
                 >
                   <PrismicLink
@@ -249,7 +193,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                 </Button>
               ) : (
                 <Button
-                  className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
+                  className="bg-primary text-primary-foreground transition-colors duration-200 hover:bg-accent"
                   style={{ padding: '.5rem 2rem' }}
                   onClick={() => setIsWaitlistOpen(true)}
                 >
@@ -263,10 +207,13 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
           {/* Tablet View: Only Free Strategy Session + Hamburger (md to lg) */}
           <div className="hidden items-center space-x-4 md:flex lg:hidden">
             {!isWaitlistMode && slice.primary.free_strategy_session ? (
-              <Button className="" asChild style={{ padding: '.5rem 2rem' }}>
+              <Button
+                className="bg-primary text-primary-foreground transition-colors duration-200 hover:bg-accent"
+                asChild
+                style={{ padding: '.5rem 2rem' }}
+              >
                 <PrismicLink
                   field={slice.primary.free_strategy_session}
-                  className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
                   fallbackText="Free Strategy Session"
                 >
                   {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
@@ -274,7 +221,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
               </Button>
             ) : (
               <Button
-                className="bg-design-accent text-white transition-colors duration-200 hover:bg-design-accent-dark"
+                className="bg-primary text-primary-foreground transition-colors duration-200 hover:bg-accent"
                 style={{ padding: '.5rem 2rem' }}
                 onClick={() => setIsWaitlistOpen(true)}
               >
@@ -284,7 +231,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
             <Button
               variant="ghost"
               size="icon"
-              className="text-design-primary"
+              className="text-foreground"
               onClick={() => setIsMobileMenuOpen(true)}
             >
               <Menu className="h-6 w-6" />
@@ -295,7 +242,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
             <Button
               variant="ghost"
               size="icon"
-              className="text-design-primary"
+              className="text-foreground"
               onClick={() => setIsMobileMenuOpen(true)}
             >
               <Menu className="h-6 w-6" />
@@ -314,7 +261,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -330,10 +277,10 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                 stiffness: 300,
                 damping: 30,
               }}
-              className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-white/95 shadow-lg backdrop-blur-xl"
+              className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-background/95 shadow-lg backdrop-blur-xl"
             >
               {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between border-b border-gray-200 p-6">
+              <div className="flex items-center justify-between border-b border-border p-6">
                 <div className="flex items-center space-x-3">
                   {slice.primary.logo?.url ? (
                     <PrismicNextImage
@@ -343,13 +290,13 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                       className="h-7 w-auto"
                     />
                   ) : (
-                    <div className="h-7 w-10 rounded bg-design-accent"></div>
+                    <div className="h-7 w-10 rounded bg-primary"></div>
                   )}
                 </div>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-design-primary"
+                  className="text-foreground"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <X className="h-6 w-6" />
@@ -369,7 +316,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                     fallbackText="Free Strategy Session"
                   >
                     <Button
-                      className="w-full rounded-full bg-design-accent py-3 text-white hover:bg-design-accent-dark"
+                      className="w-full rounded-full bg-primary py-3 text-primary-foreground hover:bg-accent"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
@@ -377,7 +324,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                   </PrismicLink>
                 ) : (
                   <Button
-                    className="w-full rounded-full bg-design-accent py-3 text-white hover:bg-design-accent-dark"
+                    className="w-full rounded-full bg-primary py-3 text-primary-foreground hover:bg-accent"
                     onClick={() => {
                       setIsMobileMenuOpen(false)
                       setIsWaitlistOpen(true)
@@ -390,7 +337,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full rounded-full border-design-primary py-3 text-design-primary hover:bg-design-card-bg"
+                    className="w-full rounded-full border-primary py-3 text-foreground hover:bg-secondary"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <PrismicLink field={slice.primary.login} fallbackText="Log in">
@@ -417,7 +364,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                     {item.hasDropdown ? (
                       <div>
                         <button
-                          className="flex w-full items-center justify-between border-b border-gray-100 py-4 font-medium text-design-primary transition-colors hover:text-design-accent"
+                          className="flex w-full items-center justify-between border-b border-border py-4 font-medium text-foreground transition-colors hover:text-primary"
                           onClick={() => toggleMobileItem(item.label)}
                         >
                           <span>{item.label}</span>
@@ -444,7 +391,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                                   <PrismicLink
                                     key={childIndex}
                                     field={child.link}
-                                    className="block py-2 text-sm text-design-primary transition-colors hover:text-design-accent"
+                                    className="block py-2 text-sm text-foreground transition-colors hover:text-primary"
                                     fallbackText={child.label}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                   >
@@ -459,7 +406,7 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                     ) : (
                       <PrismicLink
                         field={item.link}
-                        className="flex items-center justify-between border-b border-gray-100 py-4 font-medium text-design-primary transition-colors hover:text-design-accent"
+                        className="flex items-center justify-between border-b border-border py-4 font-medium text-foreground transition-colors hover:text-primary"
                         fallbackText={item.label}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >

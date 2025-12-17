@@ -57,20 +57,7 @@ type ContentRelationshipFieldWithData<
   >
 }[Exclude<TCustomType[number], string>['id']]
 
-type BlogPageDocumentDataSlicesSlice =
-  | MasteredSectionSlice
-  | HeroSlice
-  | WhyDomainSectionSlice
-  | TestimonialsSectionSlice
-  | ProcessSectionSlice
-  | MembershipSectionSlice
-  | ServiceSectionSlice
-  | FaqSectionSlice
-  | FeaturedSectionSlice
-  | AdvisorSectionSlice
-  | FooterSlice
-  | MarkdownContentSlice
-  | NavbarSlice
+type BlogPageDocumentDataSlicesSlice = BioSlice | MarkdownContentSlice
 
 /**
  * Content for Blog Page documents
@@ -131,6 +118,134 @@ interface BlogPageDocumentData {
 export type BlogPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
   Simplify<BlogPageDocumentData>,
   'blog_page',
+  Lang
+>
+
+type FooterDocumentDataSlicesSlice = FooterSlice
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice> /**
+   * Meta Title field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: footer.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: footer.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Footer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<FooterDocumentData>,
+  'footer',
+  Lang
+>
+
+type HeaderDocumentDataSlicesSlice = NavbarSlice
+
+/**
+ * Content for Header documents
+ */
+interface HeaderDocumentData {
+  /**
+   * Slice Zone field in *Header*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<HeaderDocumentDataSlicesSlice> /**
+   * Meta Title field in *Header*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: header.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Header*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: header.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Header*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Header document from Prismic
+ *
+ * - **API ID**: `header`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HeaderDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<HeaderDocumentData>,
+  'header',
   Lang
 >
 
@@ -375,6 +490,8 @@ export type TermOfServicesDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | BlogPageDocument
+  | FooterDocument
+  | HeaderDocument
   | LandingDocument
   | PrivacyPolicyDocument
   | TermOfServicesDocument
@@ -458,6 +575,78 @@ export type AdvisorSectionSlice = prismic.SharedSlice<
   'advisor_section',
   AdvisorSectionSliceVariation
 >
+
+/**
+ * Primary content in *Bio → Default → Primary*
+ */
+export interface BioSliceDefaultPrimary {
+  /**
+   * Title field in *Bio → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * content field in *Bio → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField
+
+  /**
+   * image field in *Bio → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * button field in *Bio → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio.default.primary.button
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+}
+
+/**
+ * Default variation for Bio Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BioSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<BioSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Bio*
+ */
+type BioSliceVariation = BioSliceDefault
+
+/**
+ * Bio Shared Slice
+ *
+ * - **API ID**: `bio`
+ * - **Description**: Bio
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BioSlice = prismic.SharedSlice<'bio', BioSliceVariation>
 
 /**
  * Item in *FaqSection → Default → Primary → Question and Answers*
@@ -653,26 +842,6 @@ export interface FooterSliceDefaultPrimary {
   about: prismic.GroupField<Simplify<FooterSliceDefaultPrimaryAboutItem>>
 
   /**
-   * All Rights Reserved field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.all_rights_reserved
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  all_rights_reserved: prismic.KeyTextField
-
-  /**
-   * Log In field in *Footer → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.default.primary.log_in
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  log_in: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-
-  /**
    * Privacy Policy field in *Footer → Default → Primary*
    *
    * - **Field Type**: Link
@@ -691,6 +860,16 @@ export interface FooterSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   terms_of_use: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+
+  /**
+   * All Rights Reserved  field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.all_rights_reserved
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  all_rights_reserved: prismic.KeyTextField
 }
 
 /**
@@ -1112,62 +1291,6 @@ export interface NavbarSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   about: prismic.Repeatable<prismic.LinkField<string, string, unknown, prismic.FieldState, never>>
-
-  /**
-   * Membership field in *Navbar → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.default.primary.membership
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  membership: prismic.Repeatable<
-    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-  >
-
-  /**
-   * Pricing field in *Navbar → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.default.primary.pricing
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  pricing: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-
-  /**
-   * Services field in *Navbar → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.default.primary.services
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  services: prismic.Repeatable<
-    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-  >
-
-  /**
-   * Learn field in *Navbar → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.default.primary.learn
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  learn: prismic.Repeatable<prismic.LinkField<string, string, unknown, prismic.FieldState, never>>
-
-  /**
-   * Resources field in *Navbar → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.default.primary.resources
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  resources: prismic.Repeatable<
-    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-  >
 
   /**
    * Login field in *Navbar → Default → Primary*
@@ -1641,6 +1764,12 @@ declare module '@prismicio/client' {
       BlogPageDocument,
       BlogPageDocumentData,
       BlogPageDocumentDataSlicesSlice,
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
+      HeaderDocument,
+      HeaderDocumentData,
+      HeaderDocumentDataSlicesSlice,
       LandingDocument,
       LandingDocumentData,
       LandingDocumentDataSlicesSlice,
@@ -1656,6 +1785,10 @@ declare module '@prismicio/client' {
       AdvisorSectionSliceDefaultPrimary,
       AdvisorSectionSliceVariation,
       AdvisorSectionSliceDefault,
+      BioSlice,
+      BioSliceDefaultPrimary,
+      BioSliceVariation,
+      BioSliceDefault,
       FaqSectionSlice,
       FaqSectionSliceDefaultPrimaryQuestionAndAnswersItem,
       FaqSectionSliceDefaultPrimary,

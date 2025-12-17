@@ -47,15 +47,15 @@ const ServiceSection: FC<ServiceSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative overflow-hidden border-t border-zinc-100 bg-white py-24"
+      className="relative overflow-hidden border-t border-border bg-background py-24"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="container mx-auto px-6">
         {/* Header */}
         <FadeInView className="mb-16 text-center">
-          <h2 className="mb-4 font-serif text-4xl font-semibold tracking-tight text-design-primary md:text-5xl">
+          <h2 className="mb-4 font-serif text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
             {slice.primary.title || 'Comprehensive Wealth Management'}
           </h2>
-          <p className="mx-auto max-w-6xl font-proxima text-xl text-design-primary">
+          <p className="font-sans text-xl text-foreground">
             {slice.primary.description ||
               'Everything you need to manage equity, taxes, and life goals in one unified view.'}
           </p>

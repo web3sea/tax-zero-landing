@@ -1,26 +1,17 @@
 {
   "format": "page",
-  "id": "blog_page",
-  "label": "Blog Page",
-  "repeatable": true,
+  "id": "header",
+  "label": "Header",
+  "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "uid": {
-        "type": "UID",
-        "config": {
-          "label": "UID"
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "bio": {
-              "type": "SharedSlice"
-            },
-            "markdown_content": {
+            "navbar": {
               "type": "SharedSlice"
             }
           }

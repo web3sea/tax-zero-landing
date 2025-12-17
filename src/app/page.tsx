@@ -5,6 +5,7 @@ import { SliceZone } from '@prismicio/react'
 
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
+import MainLayout from '@/layout/MainLayout'
 
 export default async function LandingPage() {
   const client = createClient()
@@ -14,7 +15,11 @@ export default async function LandingPage() {
     is_waitlist_mode: page.data.is_waitlist_mode,
   }
 
-  return <SliceZone slices={page.data.slices} context={staticContext} components={components} />
+  return (
+    <MainLayout>
+      <SliceZone slices={page.data.slices} context={staticContext} components={components} />
+    </MainLayout>
+  )
 }
 
 export async function generateMetadata(): Promise<Metadata> {

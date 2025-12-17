@@ -17,27 +17,28 @@ const ProcessSection: FC<ProcessSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-20 bg-design-primary text-white"
+      className="bg-brand-navy py-20 text-primary-foreground"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="container mx-auto px-6">
+        <div className="mb-16 text-center">
           <PrismicRichText
             field={slice.primary.title}
             components={{
               heading2: ({ children }) => (
-                <h2 className="font-serif text-5xl lg:text-6xl font-light leading-tight mb-6 tracking-tight">
+                <h2 className="mb-6 font-serif text-5xl font-light leading-tight tracking-tight lg:text-6xl">
                   {children}
                 </h2>
               ),
             }}
           />
-          <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto font-proxima">
-            {slice.primary.descriptiomn || 'Three simple steps to transform your financial future with expert guidance that evolves with your life.'}
+          <p className="font-sans text-xl leading-relaxed text-primary-foreground/90">
+            {slice.primary.descriptiomn ||
+              'Three simple steps to transform your financial future with expert guidance that evolves with your life.'}
           </p>
         </div>
 
         {/* Three Steps - Cards with built-in arrows */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 mb-12">
+        <div className="mb-12 flex flex-col items-center justify-center gap-4 lg:flex-row">
           {slice.primary.cards?.map((step, index) => (
             <div key={index} className="w-full">
               <ProcessCard
@@ -50,17 +51,17 @@ const ProcessSection: FC<ProcessSectionProps> = ({ slice }) => {
         </div>
 
         <div className="text-center">
-          <p className="text-white text-sm font-proxima italic mb-10">
+          <p className="mb-10 font-sans text-sm italic text-primary-foreground">
             For Illustrative Purposes Only
           </p>
           {slice.primary.button && (
             <PrismicLink
               field={slice.primary.button}
-              className="font-proxima inline-block bg-white text-design-primary rounded-full font-normal shadow-none transition-all duration-200 hover:bg-design-card-bg hover:text-design-primary focus:outline-none"
+              className="inline-block rounded-full bg-background font-sans font-normal text-foreground shadow-none transition-all duration-200 hover:bg-secondary hover:text-foreground focus:outline-none"
               style={{
                 padding: '.8rem 2rem',
                 boxShadow: 'none',
-                borderColor: 'hsl(var(--design-primary))',
+                borderColor: 'hsl(var(--foreground))',
               }}
               fallbackText="See how we work with you"
             >
