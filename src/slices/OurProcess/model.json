@@ -1,0 +1,89 @@
+{
+  "id": "our_process",
+  "type": "SharedSlice",
+  "name": "OurProcess",
+  "description": "OurProcess",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "process_step": {
+          "type": "Group",
+          "config": {
+            "label": "Process Step",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "description",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "result_title": {
+          "type": "Text",
+          "config": {
+            "label": "Result title",
+            "placeholder": ""
+          }
+        },
+        "result_description": {
+          "type": "Text",
+          "config": {
+            "label": "Result description",
+            "placeholder": ""
+          }
+        },
+        "apply_to_membership": {
+          "type": "Link",
+          "config": {
+            "label": "Button text",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

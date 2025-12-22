@@ -1,0 +1,50 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "might",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "upon",
+				"type": "Text"
+			},
+			"form": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "congress",
+									"type": "Text"
+								}
+							],
+							[
+								"placeholder",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "chest",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "stems",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

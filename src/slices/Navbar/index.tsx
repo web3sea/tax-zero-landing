@@ -14,21 +14,15 @@ import Link from 'next/link'
 /**
  * Props for `Navbar`.
  */
-export type NavbarProps = SliceComponentProps<Content.NavbarSlice> & {
-  context: {
-    is_waitlist_mode: boolean
-  }
-}
+export type NavbarProps = SliceComponentProps<Content.NavbarSlice>
 
 /**
  * Component for "Navbar" Slices.
  */
-const Navbar: FC<NavbarProps> = ({ slice, context }) => {
+const Navbar: FC<NavbarProps> = ({ slice }) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null)
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
-  const isWaitlistMode = context?.is_waitlist_mode ?? false
 
   const handleMouseEnter = (label: string) => {
     setActiveDropdown(label)
@@ -37,6 +31,9 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
   const handleMouseLeave = () => {
     setActiveDropdown(null)
   }
+
+
+
 
   // const toggleMobileItem = (label: string) => {
   //   setExpandedMobileItem(expandedMobileItem === label ? null : label)
@@ -57,19 +54,42 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
 
   // Create navigation items from Prismic data
   const navigationItems = [
-    {
-      label: 'About',
-      link: Array.isArray(slice.primary.about)
-        ? slice.primary.about[0]
-        : slice.primary.about || { url: '#about' },
-      hasDropdown: Array.isArray(slice.primary.about) && slice.primary.about.length > 0,
-      children: Array.isArray(slice.primary.about)
-        ? slice.primary.about.map((item) => ({
-            label: item.text || 'Link',
-            link: item,
-          }))
-        : [],
-    },
+    // Pricing - simple link
+    ...(slice.primary.pricing
+      ? [
+          {
+            label: slice.primary.pricing.text || 'Pricing',
+            link: slice.primary.pricing,
+            hasDropdown: false,
+            children: [] as Array<{ label: string; link: any }>,
+          },
+        ]
+      : []),
+    // Blog - simple link
+    ...(slice.primary.blog
+      ? [
+          {
+            label: slice.primary.blog.text || 'Blog',
+            link: slice.primary.blog,
+            hasDropdown: false,
+            children: [] as Array<{ label: string; link: any }>,
+          },
+        ]
+      : []),
+    // About - dropdown with aboutgroup
+    ...(slice.primary.aboutgroup && slice.primary.aboutgroup.length > 0
+      ? [
+          {
+            label: 'About',
+            link: slice.primary.aboutgroup[0]?.about_item || null,
+            hasDropdown: true,
+            children: slice.primary.aboutgroup.map((item) => ({
+              label: item.about_item?.text || 'Link',
+              link: item.about_item,
+            })),
+          },
+        ]
+      : []),
   ]
 
   return (
@@ -168,66 +188,26 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
 
             {/* CTA Buttons */}
             <div className="flex items-center space-x-4">
-              {/* {slice.primary.login && (
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-design-primary text-design-primary transition-colors duration-200 hover:bg-design-card-bg"
-                  style={{ padding: '.5rem 2rem' }}
-                >
-                  <PrismicNextLink field={slice.primary.login}>Log in</PrismicNextLink>
-                </Button>
-              )} */}
-              {!isWaitlistMode && slice.primary.free_strategy_session ? (
-                <Button
-                  asChild
-                  className="bg-primary text-primary-foreground transition-colors duration-200 hover:bg-accent"
-                  style={{ padding: '.5rem 2rem' }}
-                >
-                  <PrismicLink
-                    field={slice.primary.free_strategy_session}
-                    fallbackText="Free Strategy Session"
-                  >
-                    {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
-                  </PrismicLink>
-                </Button>
-              ) : (
-                <Button
-                  className="bg-primary text-primary-foreground transition-colors duration-200 hover:bg-accent"
-                  style={{ padding: '.5rem 2rem' }}
-                  onClick={() => setIsWaitlistOpen(true)}
-                >
-                  {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
-                </Button>
-              )}
-              <WaitlistFormModal open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
-            </div>
-          </div>
-
-          {/* Tablet View: Only Free Strategy Session + Hamburger (md to lg) */}
-          <div className="hidden items-center space-x-4 md:flex lg:hidden">
-            {!isWaitlistMode && slice.primary.free_strategy_session ? (
-              <Button
-                className="bg-primary text-primary-foreground transition-colors duration-200 hover:bg-accent"
-                asChild
-                style={{ padding: '.5rem 2rem' }}
-              >
-                <PrismicLink
-                  field={slice.primary.free_strategy_session}
-                  fallbackText="Free Strategy Session"
-                >
-                  {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
-                </PrismicLink>
-              </Button>
-            ) : (
               <Button
                 className="bg-primary text-primary-foreground transition-colors duration-200 hover:bg-accent"
                 style={{ padding: '.5rem 2rem' }}
                 onClick={() => setIsWaitlistOpen(true)}
               >
-                {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
+                {slice.primary.free_strategy_session?.text || 'Membership'}
               </Button>
-            )}
+              <WaitlistFormModal open={isWaitlistOpen} onOpenChange={setIsWaitlistOpen} />
+            </div>
+          </div>
+
+          {/* Tablet View: Only Membership + Hamburger (md to lg) */}
+          <div className="hidden items-center space-x-4 md:flex lg:hidden">
+            <Button
+              className="bg-primary text-primary-foreground transition-colors duration-200 hover:bg-accent"
+              style={{ padding: '.5rem 2rem' }}
+              onClick={() => setIsWaitlistOpen(true)}
+            >
+              {slice.primary.free_strategy_session?.text || 'Membership'}
+            </Button>
             <Button
               variant="ghost"
               size="icon"
@@ -310,29 +290,15 @@ const Navbar: FC<NavbarProps> = ({ slice, context }) => {
                 transition={{ delay: 0.1, duration: 0.2 }}
                 className="space-y-4 px-6 py-6"
               >
-                {!isWaitlistMode && slice.primary.free_strategy_session ? (
-                  <PrismicLink
-                    field={slice.primary.free_strategy_session}
-                    fallbackText="Free Strategy Session"
-                  >
-                    <Button
-                      className="w-full rounded-full bg-primary py-3 text-primary-foreground hover:bg-accent"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
-                    </Button>
-                  </PrismicLink>
-                ) : (
-                  <Button
-                    className="w-full rounded-full bg-primary py-3 text-primary-foreground hover:bg-accent"
-                    onClick={() => {
-                      setIsMobileMenuOpen(false)
-                      setIsWaitlistOpen(true)
-                    }}
-                  >
-                    {slice.primary.free_strategy_session?.text || 'Free Strategy Session'}
-                  </Button>
-                )}
+                <Button
+                  className="w-full rounded-full bg-primary py-3 text-primary-foreground hover:bg-accent"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    setIsWaitlistOpen(true)
+                  }}
+                >
+                  {slice.primary.free_strategy_session?.text || 'Membership'}
+                </Button>
                 {slice.primary.login && (
                   <Button
                     asChild

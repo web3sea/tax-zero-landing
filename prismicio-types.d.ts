@@ -249,6 +249,70 @@ export type BlogPageNewDocument<Lang extends string = string> = prismic.PrismicD
   Lang
 >
 
+type ContactUsDocumentDataSlicesSlice = ContactUsSlice
+
+/**
+ * Content for Contact Us documents
+ */
+interface ContactUsDocumentData {
+  /**
+   * Slice Zone field in *Contact Us*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<ContactUsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Contact Us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: contact_us.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Contact Us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: contact_us.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Contact Us*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Contact Us document from Prismic
+ *
+ * - **API ID**: `contact_us`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContactUsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<ContactUsDocumentData>,
+  'contact_us',
+  Lang
+>
+
 type FooterDocumentDataSlicesSlice = FooterSlice
 
 /**
@@ -465,6 +529,134 @@ export type LandingDocument<Lang extends string = string> = prismic.PrismicDocum
   Lang
 >
 
+type OurProcessDocumentDataSlicesSlice = OurProcessSlice
+
+/**
+ * Content for Our Process documents
+ */
+interface OurProcessDocumentData {
+  /**
+   * Slice Zone field in *Our Process*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<OurProcessDocumentDataSlicesSlice> /**
+   * Meta Title field in *Our Process*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: our_process.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Our Process*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: our_process.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Our Process*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Our Process document from Prismic
+ *
+ * - **API ID**: `our_process`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type OurProcessDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<OurProcessDocumentData>,
+  'our_process',
+  Lang
+>
+
+type PricingPageDocumentDataSlicesSlice = PricingPageSlice
+
+/**
+ * Content for Pricing Page documents
+ */
+interface PricingPageDocumentData {
+  /**
+   * Slice Zone field in *Pricing Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<PricingPageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Pricing Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: pricing_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField
+
+  /**
+   * Meta Description field in *Pricing Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: pricing_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Pricing Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>
+}
+
+/**
+ * Pricing Page document from Prismic
+ *
+ * - **API ID**: `pricing_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PricingPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+  Simplify<PricingPageDocumentData>,
+  'pricing_page',
+  Lang
+>
+
 type PrivacyPolicyDocumentDataSlicesSlice =
   | HeroSlice
   | ProcessSectionSlice
@@ -620,9 +812,12 @@ export type AllDocumentTypes =
   | BlogListingDocument
   | BlogPageDocument
   | BlogPageNewDocument
+  | ContactUsDocument
   | FooterDocument
   | HeaderDocument
   | LandingDocument
+  | OurProcessDocument
+  | PricingPageDocument
   | PrivacyPolicyDocument
   | TermOfServicesDocument
 
@@ -829,6 +1024,103 @@ type BlogHomeSliceVariation = BlogHomeSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type BlogHomeSlice = prismic.SharedSlice<'blog_home', BlogHomeSliceVariation>
+
+/**
+ * Item in *ContactUs → Default → Primary → form*
+ */
+export interface ContactUsSliceDefaultPrimaryFormItem {
+  /**
+   * label field in *ContactUs → Default → Primary → form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.form[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField
+
+  /**
+   * placeholder field in *ContactUs → Default → Primary → form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.form[].placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  placeholder: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *ContactUs → Default → Primary*
+ */
+export interface ContactUsSliceDefaultPrimary {
+  /**
+   * title field in *ContactUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * description field in *ContactUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField
+
+  /**
+   * form field in *ContactUs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.form[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  form: prismic.GroupField<Simplify<ContactUsSliceDefaultPrimaryFormItem>>
+
+  /**
+   * button text field in *ContactUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  button_text: prismic.KeyTextField
+}
+
+/**
+ * Default variation for ContactUs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactUsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<ContactUsSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *ContactUs*
+ */
+type ContactUsSliceVariation = ContactUsSliceDefault
+
+/**
+ * ContactUs Shared Slice
+ *
+ * - **API ID**: `contact_us`
+ * - **Description**: ContactUs
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactUsSlice = prismic.SharedSlice<'contact_us', ContactUsSliceVariation>
 
 /**
  * Item in *FaqSection → Default → Primary → Question and Answers*
@@ -1451,6 +1743,21 @@ export type MembershipSectionSlice = prismic.SharedSlice<
 >
 
 /**
+ * Item in *Navbar → Default → Primary → AboutGroup*
+ */
+export interface NavbarSliceDefaultPrimaryAboutgroupItem {
+  /**
+   * About Item field in *Navbar → Default → Primary → AboutGroup*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.default.primary.aboutgroup[].about_item
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  about_item: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+}
+
+/**
  * Primary content in *Navbar → Default → Primary*
  */
 export interface NavbarSliceDefaultPrimary {
@@ -1463,16 +1770,6 @@ export interface NavbarSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   logo: prismic.ImageField<never>
-
-  /**
-   * About field in *Navbar → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.default.primary.about
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  about: prismic.Repeatable<prismic.LinkField<string, string, unknown, prismic.FieldState, never>>
 
   /**
    * Login field in *Navbar → Default → Primary*
@@ -1493,6 +1790,36 @@ export interface NavbarSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   free_strategy_session: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+
+  /**
+   * AboutGroup field in *Navbar → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.default.primary.aboutgroup[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  aboutgroup: prismic.GroupField<Simplify<NavbarSliceDefaultPrimaryAboutgroupItem>>
+
+  /**
+   * Pricing field in *Navbar → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.default.primary.pricing
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  pricing: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+
+  /**
+   * Blog field in *Navbar → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.default.primary.blog
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  blog: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
 }
 
 /**
@@ -1521,6 +1848,185 @@ type NavbarSliceVariation = NavbarSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type NavbarSlice = prismic.SharedSlice<'navbar', NavbarSliceVariation>
+
+/**
+ * Item in *OurProcess → Default → Primary → Process Step*
+ */
+export interface OurProcessSliceDefaultPrimaryProcessStepItem {
+  /**
+   * icon field in *OurProcess → Default → Primary → Process Step*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.default.primary.process_step[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>
+
+  /**
+   * title field in *OurProcess → Default → Primary → Process Step*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.default.primary.process_step[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * description field in *OurProcess → Default → Primary → Process Step*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.default.primary.process_step[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField
+}
+
+/**
+ * Primary content in *OurProcess → Default → Primary*
+ */
+export interface OurProcessSliceDefaultPrimary {
+  /**
+   * Title field in *OurProcess → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *OurProcess → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField
+
+  /**
+   * Process Step field in *OurProcess → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.default.primary.process_step[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  process_step: prismic.GroupField<Simplify<OurProcessSliceDefaultPrimaryProcessStepItem>>
+
+  /**
+   * Result title field in *OurProcess → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.default.primary.result_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  result_title: prismic.KeyTextField
+
+  /**
+   * Result description field in *OurProcess → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.default.primary.result_description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  result_description: prismic.KeyTextField
+
+  /**
+   * Button text field in *OurProcess → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_process.default.primary.apply_to_membership
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  apply_to_membership: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+}
+
+/**
+ * Default variation for OurProcess Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type OurProcessSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<OurProcessSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *OurProcess*
+ */
+type OurProcessSliceVariation = OurProcessSliceDefault
+
+/**
+ * OurProcess Shared Slice
+ *
+ * - **API ID**: `our_process`
+ * - **Description**: OurProcess
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type OurProcessSlice = prismic.SharedSlice<'our_process', OurProcessSliceVariation>
+
+/**
+ * Primary content in *PricingPage → Default → Primary*
+ */
+export interface PricingPageSliceDefaultPrimary {
+  /**
+   * title field in *PricingPage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_page.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * description field in *PricingPage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing_page.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField
+}
+
+/**
+ * Default variation for PricingPage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PricingPageSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<PricingPageSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *PricingPage*
+ */
+type PricingPageSliceVariation = PricingPageSliceDefault
+
+/**
+ * PricingPage Shared Slice
+ *
+ * - **API ID**: `pricing_page`
+ * - **Description**: PricingPage
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PricingPageSlice = prismic.SharedSlice<'pricing_page', PricingPageSliceVariation>
 
 /**
  * Item in *ProcessSection → Default → Primary → cards*
@@ -1952,6 +2458,9 @@ declare module '@prismicio/client' {
       BlogPageNewDocument,
       BlogPageNewDocumentData,
       BlogPageNewDocumentDataSlicesSlice,
+      ContactUsDocument,
+      ContactUsDocumentData,
+      ContactUsDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataSlicesSlice,
@@ -1961,6 +2470,12 @@ declare module '@prismicio/client' {
       LandingDocument,
       LandingDocumentData,
       LandingDocumentDataSlicesSlice,
+      OurProcessDocument,
+      OurProcessDocumentData,
+      OurProcessDocumentDataSlicesSlice,
+      PricingPageDocument,
+      PricingPageDocumentData,
+      PricingPageDocumentDataSlicesSlice,
       PrivacyPolicyDocument,
       PrivacyPolicyDocumentData,
       PrivacyPolicyDocumentDataSlicesSlice,
@@ -1981,6 +2496,11 @@ declare module '@prismicio/client' {
       BlogHomeSliceDefaultPrimary,
       BlogHomeSliceVariation,
       BlogHomeSliceDefault,
+      ContactUsSlice,
+      ContactUsSliceDefaultPrimaryFormItem,
+      ContactUsSliceDefaultPrimary,
+      ContactUsSliceVariation,
+      ContactUsSliceDefault,
       FaqSectionSlice,
       FaqSectionSliceDefaultPrimaryQuestionAndAnswersItem,
       FaqSectionSliceDefaultPrimary,
@@ -2014,9 +2534,19 @@ declare module '@prismicio/client' {
       MembershipSectionSliceVariation,
       MembershipSectionSliceDefault,
       NavbarSlice,
+      NavbarSliceDefaultPrimaryAboutgroupItem,
       NavbarSliceDefaultPrimary,
       NavbarSliceVariation,
       NavbarSliceDefault,
+      OurProcessSlice,
+      OurProcessSliceDefaultPrimaryProcessStepItem,
+      OurProcessSliceDefaultPrimary,
+      OurProcessSliceVariation,
+      OurProcessSliceDefault,
+      PricingPageSlice,
+      PricingPageSliceDefaultPrimary,
+      PricingPageSliceVariation,
+      PricingPageSliceDefault,
       ProcessSectionSlice,
       ProcessSectionSliceDefaultPrimaryCardsItem,
       ProcessSectionSliceDefaultPrimary,

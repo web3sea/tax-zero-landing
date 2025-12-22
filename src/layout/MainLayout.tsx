@@ -1,8 +1,13 @@
+import React from 'react'
 import { SliceZone } from '@prismicio/react'
 import { components } from '@/slices'
 import { createClient } from '@/prismicio'
 
-export default async function MainLayout({ children }: { children: React.ReactNode }) {
+export default async function MainLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <>
       <Header />

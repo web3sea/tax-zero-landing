@@ -20,7 +20,7 @@ const MarkdownContent: FC<MarkdownContentProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="container mx-auto min-h-screen px-6 py-8"
+      className="container max-w-5xl mx-auto min-h-screen px-6 py-8"
     >
       {slice.primary.title && (
         <h1 className="mb-4 font-serif text-4xl font-bold text-foreground">

@@ -12,20 +12,15 @@ import { FadeInView } from '@/components/feature/FadeInView'
 /**
  * Props for `Hero`.
  */
-export type HeroProps = SliceComponentProps<Content.HeroSlice> & {
-  context: {
-    is_waitlist_mode: boolean
-  }
-}
+export type HeroProps = SliceComponentProps<Content.HeroSlice>
 
 /**
  * Component for "Hero" Slices.
  */
-const Hero: FC<HeroProps> = ({ slice, context }) => {
+const Hero: FC<HeroProps> = ({ slice }) => {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
   const [api, setApi] = useState<CarouselApi>()
   const [currentIndex, setCurrentIndex] = useState(0)
-  const isWaitlistMode = context?.is_waitlist_mode ?? true
   const carouselImages = slice.primary.carousel_images ?? []
   const selectedCarouselMode = (slice.primary.carousel_mode as string) ?? 'ken_burns_effect'
 
@@ -146,62 +141,32 @@ const Hero: FC<HeroProps> = ({ slice, context }) => {
 
             {/* Button with animation */}
             <FadeInView delay={0.6} duration={0.8} y={30}>
-              {!isWaitlistMode ? (
-                <PrismicLink
-                  field={slice.primary.button}
-                  className="group inline-flex items-center rounded-full bg-white py-3 pl-8 pr-2 shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
-                  fallbackText="Free Strategy Session"
-                >
-                  <span className="mr-6 font-sans text-lg font-medium text-foreground">
-                    {slice.primary.button.text ?? 'Free Strategy Session'}
-                  </span>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary transition-all group-hover:bg-accent">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="text-primary-foreground"
-                    >
-                      <path
-                        d="M9 5l7 7-7 7"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </PrismicLink>
-              ) : (
-                <button
-                  className="group inline-flex items-center rounded-full bg-white py-3 pl-8 pr-2 shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
-                  onClick={() => setIsWaitlistOpen(true)}
-                >
-                  <span className="mr-6 font-sans text-lg font-medium text-foreground">
-                    {slice.primary.button.text ?? 'Free Strategy Session'}
-                  </span>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary transition-all group-hover:bg-accent">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="text-primary-foreground"
-                    >
-                      <path
-                        d="M9 5l7 7-7 7"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </button>
-              )}
+              <button
+                className="group inline-flex items-center rounded-full bg-white py-3 pl-8 pr-2 shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
+                onClick={() => setIsWaitlistOpen(true)}
+              >
+                <span className="mr-6 font-sans text-lg font-medium text-foreground">
+                  {slice.primary.button.text ?? 'Free Strategy Session'}
+                </span>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary transition-all group-hover:bg-accent">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="text-primary-foreground"
+                  >
+                    <path
+                      d="M9 5l7 7-7 7"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
             </FadeInView>
           </div>
         </div>

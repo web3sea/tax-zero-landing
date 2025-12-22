@@ -13,16 +13,11 @@ import { AnimatedCard } from '@/components/feature/AnimatedCard'
 /**
  * Props for `MembershipSection`.
  */
-export type MembershipSectionProps = SliceComponentProps<Content.MembershipSectionSlice> & {
-  context: {
-    is_waitlist_mode: boolean
-  }
-}
+export type MembershipSectionProps = SliceComponentProps<Content.MembershipSectionSlice>
 /**
  * Component for "MembershipSection" Slices.
  */
-const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
-  const isWaitlistMode = context?.is_waitlist_mode ?? true
+const MembershipSection: FC<MembershipSectionProps> = ({ slice }) => {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
 
   return (
@@ -94,42 +89,21 @@ const MembershipSection: FC<MembershipSectionProps> = ({ slice, context }) => {
 
         {/* CTA */}
         <FadeInView delay={0.3}>
-          {!isWaitlistMode && (
-            <div className="text-center">
-              <PrismicLink
-                field={slice.primary.button}
-                className="mx-auto inline-flex items-center rounded-full bg-primary px-2 py-2 font-sans text-lg text-primary-foreground shadow-md transition-colors duration-200 hover:bg-accent"
-                fallbackText={slice.primary.button.text}
-              >
-                <span className="ml-4 mr-4 font-sans text-xl">{slice.primary.button.text}</span>
-                <Image
-                  src="/svg/icons/arrow-right.svg"
-                  alt="Arrow"
-                  width={40}
-                  height={40}
-                  className="h-10 w-10"
-                />
-              </PrismicLink>
-            </div>
-          )}
-
-          {isWaitlistMode ? (
-            <div className="text-center">
-              <button
-                className="mx-auto inline-flex items-center rounded-full bg-primary px-2 py-2 font-sans text-lg text-primary-foreground shadow-md transition-colors duration-200 hover:bg-accent"
-                onClick={() => setIsWaitlistOpen(true)}
-              >
-                <span className="ml-4 mr-4 font-sans text-xl">{slice.primary.button.text}</span>
-                <Image
-                  src="/svg/icons/arrow-right.svg"
-                  alt="Arrow"
-                  width={40}
-                  height={40}
-                  className="h-10 w-10"
-                />
-              </button>
-            </div>
-          ) : null}
+          <div className="text-center">
+            <button
+              className="mx-auto inline-flex items-center rounded-full bg-primary px-2 py-2 font-sans text-lg text-primary-foreground shadow-md transition-colors duration-200 hover:bg-accent"
+              onClick={() => setIsWaitlistOpen(true)}
+            >
+              <span className="ml-4 mr-4 font-sans text-xl">{slice.primary.button.text}</span>
+              <Image
+                src="/svg/icons/arrow-right.svg"
+                alt="Arrow"
+                width={40}
+                height={40}
+                className="h-10 w-10"
+              />
+            </button>
+          </div>
 
           {/* Citation */}
           {slice.primary.citation_text && (

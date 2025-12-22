@@ -20,17 +20,6 @@
             "thumbnails": []
           }
         },
-        "about": {
-          "type": "Link",
-          "config": {
-            "label": "About",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": true
-          }
-        },
         "login": {
           "type": "Link",
           "config": {
@@ -50,6 +39,48 @@
           "type": "Link",
           "config": {
             "label": "Free Strategy Session",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "aboutgroup": {
+          "type": "Group",
+          "config": {
+            "label": "AboutGroup",
+            "repeat": true,
+            "fields": {
+              "about_item": {
+                "type": "Link",
+                "config": {
+                  "label": "About Item",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "pricing": {
+          "type": "Link",
+          "config": {
+            "label": "Pricing",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "blog": {
+          "type": "Link",
+          "config": {
+            "label": "Blog",
             "placeholder": "",
             "select": null,
             "allowTargetBlank": true,

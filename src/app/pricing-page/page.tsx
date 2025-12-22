@@ -7,9 +7,9 @@ import { createClient } from '@/prismicio'
 import { components } from '@/slices'
 import MainLayout from '@/layout/MainLayout'
 
-export default async function LandingPage() {
+export default async function Page() {
   const client = createClient()
-  const page = await client.getSingle('landing').catch(() => notFound())
+  const page = await client.getSingle('pricing_page').catch(() => notFound())
 
   return (
     <MainLayout>
@@ -20,7 +20,7 @@ export default async function LandingPage() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient()
-  const page = await client.getSingle('landing').catch(() => notFound())
+  const page = await client.getSingle('pricing_page').catch(() => notFound())
 
   return {
     title: page.data.meta_title,
