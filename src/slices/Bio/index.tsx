@@ -1,8 +1,9 @@
 import { FC } from 'react'
 import { Content } from '@prismicio/client'
 import { PrismicRichText, SliceComponentProps } from '@prismicio/react'
-import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
+import { PrismicNextImage } from '@prismicio/next'
 import { FadeInView } from '@/components/feature/FadeInView'
+import PrismicLink from '@/components/common/prismic-link'
 
 /**
  * Props for `Bio`.
@@ -48,12 +49,12 @@ const Bio: FC<BioProps> = ({ slice }) => {
               {/* LinkedIn Button */}
               {slice.primary.button && (
                 <div className="pt-2">
-                  <PrismicNextLink
+                  <PrismicLink
                     field={slice.primary.button}
                     className="inline-flex w-fit items-center gap-2 rounded-full border-2 border-foreground bg-background px-6 py-3 font-sans text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
                   >
                     {slice.primary.button?.text || 'Connect Liz'}
-                  </PrismicNextLink>
+                  </PrismicLink>
                 </div>
               )}
             </div>

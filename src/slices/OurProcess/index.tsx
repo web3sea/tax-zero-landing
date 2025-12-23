@@ -3,8 +3,7 @@
 import { FC, useState } from 'react'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
-import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
-import PrismicLink from '@/components/common/prismic-link'
+import { PrismicNextImage } from '@prismicio/next'
 import { FadeInView } from '@/components/feature/FadeInView'
 import WaitlistFormModal from '@/components/form/waitlist-form-modal'
 
