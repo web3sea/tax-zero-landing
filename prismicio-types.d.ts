@@ -841,26 +841,6 @@ export interface AdvisorSectionSliceDefaultPrimaryBadgesItem {
  */
 export interface AdvisorSectionSliceDefaultPrimary {
   /**
-   * title field in *AdvisorSection → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: advisor_section.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField
-
-  /**
-   * description field in *AdvisorSection → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: advisor_section.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField
-
-  /**
    * Badges field in *AdvisorSection → Default → Primary*
    *
    * - **Field Type**: Group
@@ -869,6 +849,26 @@ export interface AdvisorSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   badges: prismic.GroupField<Simplify<AdvisorSectionSliceDefaultPrimaryBadgesItem>>
+
+  /**
+   * title field in *AdvisorSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * description field in *AdvisorSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advisor_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField
 }
 
 /**

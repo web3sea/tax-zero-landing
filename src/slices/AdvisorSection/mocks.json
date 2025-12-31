@@ -3,28 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Incididunt Lorem tempor fugiat nisi esse laborum sunt voluptate fugiat occaecat veniam cillum. Elit nulla sunt nisi consectetur aliquip labore consectetur labore cillum officia."
-						}
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Velit irure mollit culpa cupidatat aute culpa laboris cillum do sit. Dolor consectetur sit commodo ex reprehenderit ut anim nostrud eu excepteur ut enim."
-						}
-					}
-				]
-			},
 			"badges": {
 				"__TYPE__": "GroupContentType",
 				"value": [
@@ -42,6 +20,16 @@
 						]
 					}
 				]
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "mostly",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "total",
+				"type": "Text"
 			}
 		},
 		"items": []
